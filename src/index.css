@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: #323231;
+  background-color: rgb(247, 247, 247);
+  --primary: #f36b21;
+  --secondary: #323231;
+}
