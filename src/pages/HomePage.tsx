@@ -1,10 +1,11 @@
-import { Button } from "antd";
+import ActionButtonSection from "../components/home/ActionButtonSection";
+import BannerSection from "../components/home/BannerSection";
 
 const HomePage = () => {
   return (
     <div>
-      <h2>home page</h2>
-      <Button type="primary">My Button</Button>
+      <BannerSection />
+      <ActionButtonSection />
     </div>
   );
 };

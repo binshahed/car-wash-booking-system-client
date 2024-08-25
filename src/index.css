@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 
 * {
   margin: 0;
@@ -11,5 +11,75 @@
   color: #323231;
   background-color: rgb(247, 247, 247);
   --primary: #f36b21;
-  --secondary: #323231;
+  --secondary: #000000;
 }
+
+.ubuntu-bold {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.section-header {
+  margin-bottom: 10px;
+  /* font-family: 'Barlow Semi Condensed', serif;F */
+  /* font-family: var(--font-subheaders), serif; */
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  color: var(--primary);
+}
+
+.section-header::before {
+  width: 60px;
+  margin-right: 20px;
+  position: relative;
+  top: -5px;
+  border-top: 1px solid var(--primary);
+  border-color: var(--primary);
+  border-color: var(--primary);
+  content: "";
+  display: inline-block;
+}
+
+.heading{
+  font-size: 48px;
+  font-weight: 700;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+  line-height: 1.15em;
+  margin-bottom: 20px;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+

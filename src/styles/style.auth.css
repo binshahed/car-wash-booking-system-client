@@ -1,0 +1,16 @@
+.signIn-container {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 50px;
+    border-radius: 10px;
+  }
+  .box-style {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-heading{
+      text-align: center;
+      padding: 20px;
+  }
