@@ -11,6 +11,7 @@ const ActionButtonSection = () => {
     >
       <Row>
         <Col
+          className="fade-in-up"
           md={12}
           sm={24}
           style={{
@@ -33,7 +34,14 @@ const ActionButtonSection = () => {
             <SectionButton>Read More</SectionButton>
           </div>
         </Col>
-        <Col md={12} sm={24}>
+        <Col
+          className="fade-in-up"
+          md={12}
+          sm={24}
+          style={{
+            transition: "all 0.3s ease" // Add transition
+          }}
+        >
           <img
             className="action-image"
             style={{
