@@ -65,7 +65,7 @@
   display: inline-block;
 }
 
-.heading{
+.heading {
   font-size: 48px;
   font-weight: 700;
   -ms-word-wrap: break-word;
@@ -82,7 +82,6 @@
   color: var(--secondary);
 }
 
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -96,4 +95,29 @@
 
 .fade-in-up {
   animation: fadeInUp 0.5s ease forwards; /* Apply the fade-in-up animation */
+}
+
+.text-center {
+  text-align: center;
+}
+
+.color-red {
+  color: red;
+}
+
+.text-16 {
+  font-size: 16px;
+}
+.text-18 {
+  font-size: 18px;
+}
+.text-24 {
+  font-size: 24px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+.mb-50 {
+  margin-bottom: 50px;
 }

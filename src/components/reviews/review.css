@@ -1,0 +1,75 @@
+/* Set the form label color to white */
+.form-item-label-white .ant-form-item-label > label {
+    color: #fff;
+  }
+  
+  /* Set the rating star background to white */
+  /* .rate-white .ant-rate-star {
+    background-color: white;
+  } */
+  
+  .rate-white .ant-rate-star .ant-rate-star-second {
+    color: white;
+  }
+  
+  .rate-white .ant-rate-star .ant-rate-star-first {
+    color: white;
+  }
+  
+  /* Optional: Set the color of the filled stars */
+  .rate-white .ant-rate-star.ant-rate-star-full .ant-rate-star-second {
+    color: var(--primary); /* Example color for filled stars */
+  }
+  
+
+  /* Set the height for the slider container */
+.slider-container {
+    height: 500px !important; /* Adjust height as needed */
+    position: relative;
+  }
+  
+  /* Set the height for each slide item */
+  .slide-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  /* Optionally adjust Card styling */
+  .slide-item .ant-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+
+  /* Review form container */
+.review-form-container {
+    position: relative;
+  }
+  
+  /* Overlay styles */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Ensure overlay is above the form */
+  }
+  
+  /* Overlay content styles */
+  .overlay-content {
+    text-align: center;
+    color: #fff;
+  }
+  
+  .overlay-content p {
+    margin-bottom: 20px;
+  }
