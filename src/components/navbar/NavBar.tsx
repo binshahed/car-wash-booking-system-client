@@ -21,7 +21,7 @@ import { useDispatch } from "react-redux";
 
 const menuItems = [
   { title: "Home", url: "/", cName: "nav-links" },
-  { title: "About Us", url: "/about-us", cName: "nav-links" },
+  { title: "Services", url: "/services", cName: "nav-links" },
   { title: "Products", url: "/products", cName: "nav-links" },
   {
     title: "Product Management",
@@ -83,7 +83,7 @@ const NavBar = () => {
       <Link to="/" className="navbar-logo-link">
         <img
           className="navbar-logo"
-          style={{ width: "100px" }}
+          style={{ width: "80px" }}
           src={logo}
           alt="logo"
         />

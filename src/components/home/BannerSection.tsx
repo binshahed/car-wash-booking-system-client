@@ -38,7 +38,8 @@ const BannerSection = () => {
   return (
     <div
       style={{
-        marginTop: "-100px"
+        marginTop: "-100px",
+        marginLeft: "-2px"
       }}
     >
       <Carousel
