@@ -2,6 +2,8 @@
 import { Button, Form, Input, Rate } from "antd";
 import "./review.css";
 import { useState } from "react";
+import { useAppSelector } from "../../store/hooks";
+import { useCurrentUser } from "../../store/features/auth/authSlice";
 
 const layout = {
   wrapperCol: { span: 24 } // Make the form fields full width
@@ -20,16 +22,18 @@ const validateMessages = {
 
 const ReviewForm = () => {
   const [rating, setRating] = useState(0);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Manage user login state
+  const user = useAppSelector(useCurrentUser);
 
   const onFinish = (values: any) => {
     values.rating = rating;
     console.log(values);
   };
 
+  console.log("token", user);
+
   return (
     <div className="review-form-container">
-      {!isLoggedIn && (
+      {!user?.email && (
         <div className="overlay">
           <div className="overlay-content">
             <p>Please log in to submit your review.</p>

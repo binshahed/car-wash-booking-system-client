@@ -1,14 +1,20 @@
 import { useState } from "react";
-import { Badge, Avatar, Space, Button } from "antd";
+import { Avatar, Space, Dropdown, MenuProps } from "antd";
 import {
   CloseOutlined,
   MenuUnfoldOutlined,
-  ShoppingCartOutlined,
   UserOutlined
 } from "@ant-design/icons";
 import "./navStyle.css";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
+import { useAppSelector } from "../../store/hooks";
+import {
+  logout,
+  useCurrentToken,
+  useCurrentUser
+} from "../../store/features/auth/authSlice";
+import { useDispatch } from "react-redux";
 // import { useAppSelector } from "../../store/hooks";
 
 // import { useDispatch } from "react-redux";
@@ -26,13 +32,24 @@ const menuItems = [
 
 const Header = () => {
   //   const cart = ''//useAppSelector((state) => state.cart);
-  const token = ""; //useAppSelector(useCurrentToken);
-  const user = ""; //useAppSelector(useCurrentUser);
-  //   const dispatch = useDispatch();
+  const token = useAppSelector(useCurrentToken);
+  const user = useAppSelector(useCurrentUser);
+  const dispatch = useDispatch();
 
   const handleLogout = () => {
-    // dispatch(logout());
+    dispatch(logout());
   };
+
+  const items: MenuProps["items"] = [
+    {
+      type: "divider"
+    },
+    {
+      label: "Logout",
+      key: "3",
+      onClick: handleLogout
+    }
+  ];
 
   return (
     <Space size={20}>
@@ -42,20 +59,13 @@ const Header = () => {
         </Badge>
       </Link> */}
       {token && user ? (
-        <div className="user-info" style={{ color: "#fff" }}>
-          <Avatar size={40} icon={<UserOutlined />} />
-          {/* <span style={{ margin: "0 10px" }}>{user?.name}</span> */}
-          <Button onClick={handleLogout} style={{ margin: "0 15px" }}>
-            Logout
-          </Button>
-        </div>
+        <Dropdown menu={{ items }} trigger={["click"]}>
+          <a onClick={(e) => e.preventDefault()}>
+            <Avatar size={64} icon={<UserOutlined />} />
+          </a>
+        </Dropdown>
       ) : (
-        <Link to="/login">
-          <Avatar
-            shape="square"
-            icon={<UserOutlined style={{ fontSize: "30px" }} />}
-          />
-        </Link>
+        <Link to="/login">Login</Link>
       )}
     </Space>
   );
