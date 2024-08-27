@@ -4,6 +4,7 @@ import "./review.css";
 import { useState } from "react";
 import { useAppSelector } from "../../store/hooks";
 import { useCurrentUser } from "../../store/features/auth/authSlice";
+import { Link } from "react-router-dom";
 
 const layout = {
   wrapperCol: { span: 24 } // Make the form fields full width
@@ -37,14 +38,16 @@ const ReviewForm = () => {
         <div className="overlay">
           <div className="overlay-content">
             <p>Please log in to submit your review.</p>
-            <Button
-              type="primary"
-              onClick={() => {
-                /* Handle login */
-              }}
-            >
-              Log In
-            </Button>
+            <Link to="/login">
+              <Button
+                type="primary"
+                onClick={() => {
+                  /* Handle login */
+                }}
+              >
+                Log In
+              </Button>
+            </Link>
           </div>
         </div>
       )}

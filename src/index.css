@@ -132,3 +132,14 @@
 .slick-prev:before {
   content: none !important;;
 }
+
+.review-section {
+  height: "100vh",
+}
+
+
+  @media (max-width: 768px) {
+    .review-section {
+      height: 120vh;
+    }
+  }

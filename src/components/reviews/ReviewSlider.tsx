@@ -1,14 +1,18 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Card } from "antd";
+import { Avatar, Card, Col, Rate, Row, Skeleton } from "antd";
 import "./review.css"; // Import custom CSS
+import { useGetAllReviewQuery } from "../../store/features/review/reviewApi";
+import { UserOutlined } from "@ant-design/icons";
 
 function ReviewSlider() {
+  const { data, isLoading } = useGetAllReviewQuery(undefined);
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
@@ -31,36 +35,48 @@ function ReviewSlider() {
     }
   };
 
+  console.log(data);
+
   return (
     <div className="slider-container">
       <Slider {...settings}>
-        <div className="slide-item">
-          <Card>
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
-          </Card>
-        </div>
-        <div className="slide-item">
-          <Card>
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
-          </Card>
-        </div>
-        <div className="slide-item">
-          <Card>
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
-          </Card>
-        </div>
+        {data?.data?.map((re: any) => (
+          <div className="slide-item" key={re._id}>
+            <Card style={{ minHeight: "200px" }}>
+              {isLoading ? (
+                <Skeleton avatar paragraph={{ rows: 4 }} />
+              ) : (
+                <Row>
+                  <Col span={6}>
+                    <Avatar size={100} icon={<UserOutlined />} />
+                  </Col>
+                  <Col span={18}>
+                    <Rate disabled value={re?.rating} />
+                    <p>{re.message}</p>
+                    <p
+                      style={{
+                        fontSize: "24px",
+                        fontWeight: "bold",
+                        marginTop: "10px"
+                      }}
+                      className="text-primary"
+                    >
+                      {re.customer.name}
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "16px",
+                        fontStyle: "italic"
+                      }}
+                    >
+                      {re.designation}
+                    </p>
+                  </Col>
+                </Row>
+              )}
+            </Card>
+          </div>
+        ))}
       </Slider>
     </div>
   );
