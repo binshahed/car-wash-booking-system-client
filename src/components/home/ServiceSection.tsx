@@ -7,7 +7,10 @@ import { message } from "antd";
 import SectionButton from "../buttons/SectionButton";
 
 const ServiceSection = () => {
-  const { data, error, isLoading, isError } = useGetAllServicesQuery(undefined);
+
+  const { data, error, isLoading, isError } = useGetAllServicesQuery({
+    limit: 6
+  });
   console.log(data);
   console.log(error);
   if (error) {
@@ -40,7 +43,7 @@ const ServiceSection = () => {
       )}
       {
         <Row gutter={[16, 16]} className="mb-20">
-          {data?.data?.slice(0, 6)?.map((service: any) => (
+          {data?.data?.map((service: any) => (
             <Col span={8} key={service?._id}>
               <Card
                 hoverable
