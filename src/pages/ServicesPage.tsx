@@ -3,7 +3,8 @@ import { Col, Row, Skeleton } from "antd";
 import { useState, useEffect } from "react";
 import { useGetAllServicesQuery } from "../store/features/services/servicesApi";
 import ServiceCards from "../components/cards/ServiceCards";
-import ServiceFilter from "../components/services/serviceFilter";
+import ServiceFilter from "../components/services/ServiceFilter";
+
 
 const ServicesPage = () => {
   const [search, setSearch] = useState<string>("");
