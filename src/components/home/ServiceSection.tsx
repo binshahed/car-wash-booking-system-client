@@ -7,7 +7,6 @@ import { message } from "antd";
 import SectionButton from "../buttons/SectionButton";
 
 const ServiceSection = () => {
-
   const { data, error, isLoading, isError } = useGetAllServicesQuery({
     limit: 6
   });
