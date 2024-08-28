@@ -5,6 +5,9 @@ import LoginPage from "../pages/LoginPage";
 import PublicRoute from "./PublicRoute";
 import SignUpPage from "../pages/SignUpPage";
 import ServicesPage from "../pages/ServicesPage";
+import ServiceDetailsPage from "../pages/ServiceDetailsPage";
+import BookingPage from "../pages/BookingPage";
+import ProtectedRoute from "./ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +37,18 @@ const router = createBrowserRouter([
       {
         path: "services",
         element: <ServicesPage />
+      },
+      {
+        path: "services/:serviceId",
+        element: <ServiceDetailsPage />
+      },
+      {
+        path: "booking",
+        element: (
+          <ProtectedRoute>
+            <BookingPage />
+          </ProtectedRoute>
+        )
       }
     ]
   }

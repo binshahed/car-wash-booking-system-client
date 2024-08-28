@@ -29,13 +29,13 @@ const ServiceSection = () => {
       )}
       {isLoading && (
         <Row>
-          <Col md={8} sm={12} lg={8} key="loading">
+          <Col md={8} sm={12} lg={8}>
             <Skeleton />
           </Col>
-          <Col md={8} sm={12} lg={8} key="loading">
+          <Col md={8} sm={12} lg={8}>
             <Skeleton />
           </Col>
-          <Col md={8} sm={12} lg={8} key="loading">
+          <Col md={8} sm={12} lg={8}>
             <Skeleton />
           </Col>
         </Row>
@@ -51,7 +51,7 @@ const ServiceSection = () => {
               >
                 <div>
                   <Link
-                    to={`/service/${service._id}`}
+                    to={`/services/${service._id}`}
                     style={{ color: "var(-secondary)" }}
                   >
                     <p className="product-name">{service.name}</p>

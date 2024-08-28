@@ -12,7 +12,7 @@ const ServiceCards = ({ service }: { service: any }) => {
     >
       <div>
         <Link
-          to={`/service/${service._id}`}
+          to={`/services/${service._id}`}
           style={{ color: "var(-secondary)" }}
         >
           <p className="product-name">{service.name}</p>

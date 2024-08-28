@@ -9,6 +9,7 @@ export const baseApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: config.BASE_URL,
     credentials: "include",
+
     prepareHeaders: async (headers, { getState }) => {
       headers.set("Content-Type", "application/json");
       const token = (getState() as RootState).auth.token;
@@ -18,5 +19,6 @@ export const baseApi = createApi({
       return headers;
     }
   }),
-  endpoints: () => ({})
+  endpoints: () => ({}),
+  tagTypes: ["review", "slots"]
 });

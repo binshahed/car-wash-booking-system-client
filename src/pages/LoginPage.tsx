@@ -3,7 +3,6 @@ import { Button, Form, FormProps, Input, message } from "antd";
 import "../styles/style.auth.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../store/hooks";
-
 import { TUserSignUp } from "../types/types.auth";
 import { setUser, TUserData } from "../store/features/auth/authSlice";
 import { verifyToken } from "../utils/verifyToken";
@@ -14,29 +13,23 @@ const LoginPage = () => {
   const [login, { data, isLoading }] = useLoginMutation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-
-  const { state } = useLocation();
-
-  console.log(data);
+  const location = useLocation();
+  const state = location.state as { from?: string };
 
   const onFinish: FormProps<TUserSignUp>["onFinish"] = async (values) => {
     try {
       const res = await login(values).unwrap();
-      console.log("res", res);
-
       const user = (await verifyToken(res.token)) as TUserData;
 
-      dispatch(
-        setUser({
-          user: user,
-          token: res.token
-        })
-      );
+      dispatch(setUser({ user, token: res.token }));
       message.success("Login successful");
-      navigate(state?.from || "/");
+
+      const targetPath =
+        state?.from && state.from.startsWith("/") ? state.from : "/";
+      console.log("Navigating to:", targetPath);
+      navigate(targetPath);
     } catch (err) {
       const apiError = err as APIError;
-      console.log("Sign up error:", err);
       message.error(apiError?.data?.message);
     }
   };
@@ -59,7 +52,7 @@ const LoginPage = () => {
           onFinishFailed={onFinishFailed}
           style={{ width: 400 }}
         >
-          <Form.Item<TUserSignUp>
+          <Form.Item
             name="email"
             rules={[{ required: true, message: "Please input your Email!" }]}
           >
@@ -70,7 +63,7 @@ const LoginPage = () => {
             />
           </Form.Item>
 
-          <Form.Item<TUserSignUp>
+          <Form.Item
             name="password"
             rules={[{ required: true, message: "Please input your password!" }]}
           >

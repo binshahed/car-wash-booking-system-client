@@ -9,7 +9,8 @@ const HelpBanner = () => {
         style={{
           background: `#000`,
           padding: "100px 50px",
-          borderRadius: "15px"
+          borderRadius: "15px",
+          color: "#fff"
         }}
       >
         <Col md={12}>

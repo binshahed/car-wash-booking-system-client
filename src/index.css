@@ -137,6 +137,13 @@
   height: "100vh",
 }
 
+.active {
+  background-color: var(--primary);
+  border-radius: 10px;
+
+  color: white;
+}
+
 
   @media (max-width: 768px) {
     .review-section {

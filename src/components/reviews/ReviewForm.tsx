@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button, Form, Input, Rate } from "antd";
+import { Button, Form, Input, Rate, message } from "antd"; // Import message for feedback
 import "./review.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAppSelector } from "../../store/hooks";
 import { useCurrentUser } from "../../store/features/auth/authSlice";
 import { Link } from "react-router-dom";
+import { useCreateReviewMutation } from "../../store/features/review/reviewApi";
 
 const layout = {
   wrapperCol: { span: 24 } // Make the form fields full width
@@ -22,15 +23,23 @@ const validateMessages = {
 };
 
 const ReviewForm = () => {
+  const [createReview, { isSuccess, isLoading }] = useCreateReviewMutation();
   const [rating, setRating] = useState(0);
   const user = useAppSelector(useCurrentUser);
+  const [form] = Form.useForm();
 
   const onFinish = (values: any) => {
+    values.customer = user?._id;
     values.rating = rating;
-    console.log(values);
+    createReview(values);
   };
 
-  console.log("token", user);
+  useEffect(() => {
+    if (isSuccess) {
+      form.resetFields(); // Reset the form fields after successful submission
+      message.success("Review submitted successfully!"); // Show a success message
+    }
+  }, [isSuccess, form]); // Dependency array ensures it runs when isSuccess changes
 
   return (
     <div className="review-form-container">
@@ -39,14 +48,7 @@ const ReviewForm = () => {
           <div className="overlay-content">
             <p>Please log in to submit your review.</p>
             <Link to="/login">
-              <Button
-                type="primary"
-                onClick={() => {
-                  /* Handle login */
-                }}
-              >
-                Log In
-              </Button>
+              <Button type="primary">Log In</Button>
             </Link>
           </div>
         </div>
@@ -54,46 +56,46 @@ const ReviewForm = () => {
       <Form
         {...layout}
         layout="vertical"
+        form={form} // Attach form instance for resetting fields
         name="review-form"
         onFinish={onFinish}
-        style={{ maxWidth: "100%" }} // Ensure the form takes full width
+        style={{ maxWidth: "100%" }}
         validateMessages={validateMessages}
       >
         <Form.Item
           name="rating"
           label="Rating"
-          className="form-item-label-white" // Add custom class for label
+          className="form-item-label-white"
         >
-          <Rate className="rate-white" onChange={(value) => setRating(value)} />{" "}
-          {/* Add custom class for rating */}
+          <Rate className="rate-white" onChange={(value) => setRating(value)} />
         </Form.Item>
         <Form.Item
           name="name"
           label="Name"
           rules={[{ required: true }]}
-          className="form-item-label-white" // Add custom class for label
+          className="form-item-label-white"
+          initialValue={user?.name}
         >
-          <Input />
+          <Input readOnly={Boolean(user?.email)} />
         </Form.Item>
         <Form.Item
           name="designation"
           label="Designation"
           rules={[{ required: true }]}
-          className="form-item-label-white" // Add custom class for label
+          className="form-item-label-white"
         >
           <Input />
         </Form.Item>
-
         <Form.Item
           name="message"
           label="Message"
           rules={[{ required: true }]}
-          className="form-item-label-white" // Add custom class for label
+          className="form-item-label-white"
         >
           <Input.TextArea rows={4} />
         </Form.Item>
         <Form.Item wrapperCol={{ span: 24 }}>
-          <Button type="primary" htmlType="submit" block>
+          <Button type="primary" htmlType="submit" block loading={isLoading}>
             Submit
           </Button>
         </Form.Item>
