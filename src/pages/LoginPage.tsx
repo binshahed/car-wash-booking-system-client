@@ -40,6 +40,9 @@ const LoginPage = () => {
     console.log("Failed:", errorInfo);
   };
 
+  console.log(location);
+  
+
   return (
     <div className="box-style">
       <div className="signIn-container">
