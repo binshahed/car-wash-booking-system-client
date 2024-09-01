@@ -1,15 +1,13 @@
-import { Outlet } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import "./App.css";
 import AppProvider from "./components/AppProviders/AppProvider";
-import NavBar from "./components/navbar/NavBar";
-import Footer from "./components/navbar/Footer";
+
+import router from "./router/router";
 
 function App() {
   return (
     <AppProvider>
-      <NavBar />
-      <Outlet />
-      <Footer />
+      <RouterProvider router={router} />
     </AppProvider>
   );
 }

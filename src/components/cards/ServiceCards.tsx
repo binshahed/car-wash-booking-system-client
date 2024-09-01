@@ -15,7 +15,12 @@ const ServiceCards = ({ service }: { service: any }) => {
           to={`/services/${service._id}`}
           style={{ color: "var(-secondary)" }}
         >
-          <p className="product-name">{service.name}</p>
+          <p
+            className="product-name"
+            style={{ fontSize: "18px", fontWeight: "bold" }}
+          >
+            {service.name}
+          </p>
         </Link>
         {/* <p>{product.description}</p> */}
         <p className="price">{service?.description}</p>

@@ -1,6 +1,5 @@
 import { ConfigProvider } from "antd";
 import { ReactNode } from "react";
-import { ScrollRestoration } from "react-router-dom";
 
 const AppProvider = ({ children }: { children: ReactNode }) => {
   return (
@@ -15,7 +14,6 @@ const AppProvider = ({ children }: { children: ReactNode }) => {
         }
       }}
     >
-      <ScrollRestoration />
       {children}
     </ConfigProvider>
   );

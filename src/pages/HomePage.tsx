@@ -1,17 +1,34 @@
-import ActionButtonSection from "../components/home/ActionButtonSection";
-import BannerSection from "../components/home/BannerSection";
-import HelpBanner from "../components/home/HelpBanner";
-import ReviewSection from "../components/home/ReviewSection";
-import ServiceSection from "../components/home/ServiceSection";
+import { Skeleton } from "antd";
+import { Suspense, lazy } from "react";
+
+// Lazy load the components
+const ActionButtonSection = lazy(
+  () => import("../components/home/ActionButtonSection")
+);
+const BannerSection = lazy(() => import("../components/home/BannerSection"));
+const HelpBanner = lazy(() => import("../components/home/HelpBanner"));
+const ReviewSection = lazy(() => import("../components/home/ReviewSection"));
+const ServiceSection = lazy(() => import("../components/home/ServiceSection"));
 
 const HomePage = () => {
   return (
     <div>
-      <BannerSection />
-      <ActionButtonSection />
-      <ServiceSection />
-      <ReviewSection />
-      <HelpBanner />
+      {/* Use Suspense with a fallback for each section */}
+      <Suspense fallback={<Skeleton />}>
+        <BannerSection />
+      </Suspense>
+      <Suspense fallback={<Skeleton />}>
+        <ActionButtonSection />
+      </Suspense>
+      <Suspense fallback={<Skeleton />}>
+        <ServiceSection />
+      </Suspense>
+      <Suspense fallback={<Skeleton />}>
+        <ReviewSection />
+      </Suspense>
+      <Suspense fallback={<Skeleton />}>
+        <HelpBanner />
+      </Suspense>
     </div>
   );
 };
