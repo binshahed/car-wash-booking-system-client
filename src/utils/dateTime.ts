@@ -5,5 +5,7 @@ export const convertMinutesToHoursAndMinutes = (minutes: number) => {
   const hours = Math.floor(duration.asHours());
   const mins = duration.minutes();
 
-  return `${hours > 0 ? `${hours} hours` : ""} ${mins} minutes`;
+  return `${hours > 0 ? `${hours} hours` : ""} ${
+    mins > 0 ? `${mins} minutes` : ""
+  }`;
 };

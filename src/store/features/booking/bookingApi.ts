@@ -23,8 +23,19 @@ const reviewApi = baseApi.injectEndpoints({
         method: "GET"
       }),
       providesTags: ["slots"]
+    }),
+    getAllBookings: builder.query({
+      query: () => ({
+        url: "/bookings",
+        method: "GET"
+      }),
+      providesTags: ["booking"]
     })
   })
 });
 
-export const { useGetAllSlotQuery, useGetSlotDetailsQuery } = reviewApi;
+export const {
+  useGetAllSlotQuery,
+  useGetSlotDetailsQuery,
+  useGetAllBookingsQuery
+} = reviewApi;

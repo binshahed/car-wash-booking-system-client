@@ -14,6 +14,7 @@ const ServicesPage = () => {
 
   const query = {
     searchTerm: debouncedSearch,
+    limit: 100,
     priceRange: `${priceRange[0]}-${priceRange[1]}`,
     sort: "price",
     order: sortPrice

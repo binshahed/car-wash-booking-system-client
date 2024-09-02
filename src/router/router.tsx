@@ -10,6 +10,8 @@ import ProtectedRoute from "./ProtectedRoute";
 import NotFoundPage from "../pages/NotFoundPage";
 import DashboardLayout from "../components/layout/DashboardLayout";
 import MainLayout from "../components/layout/MainLayout";
+import { routeGenerator } from "../utils/routesGenerator";
+import { adminRoutes } from "./adminRoutes";
 
 const router = createBrowserRouter([
   {
@@ -56,14 +58,13 @@ const router = createBrowserRouter([
     // errorElement: <NotFoundPage />
   },
   {
-    path: "/dashboard",
-    element: <DashboardLayout />,
-    children: [
-      {
-        path: "",
-        element: <p>hello world</p>
-      }
-    ]
+    path: "/admin",
+    element: (
+      <ProtectedRoute>
+        <DashboardLayout />
+      </ProtectedRoute>
+    ),
+    children: routeGenerator(adminRoutes)
   },
   {
     path: "/*",

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Card } from "antd";
+import { Card, Skeleton } from "antd";
 import { Link } from "react-router-dom";
 import cardImage from "../../assets/images/card-image.avif";
 
@@ -8,7 +8,13 @@ const ServiceCards = ({ service }: { service: any }) => {
     <Card
       hoverable
       style={{ width: "100%", height: "100%" }}
-      cover={<img alt="example" src={cardImage} />}
+      cover={
+        service?.image ? (
+          <Skeleton.Image />
+        ) : (
+          <img alt="example" src={service?.imageUrl || cardImage} />
+        )
+      }
     >
       <div>
         <Link

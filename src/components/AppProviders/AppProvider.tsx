@@ -7,10 +7,10 @@ const AppProvider = ({ children }: { children: ReactNode }) => {
       theme={{
         token: {
           colorBgBase: "#fff",
-          colorPrimary: "#F36B21",
+          colorPrimary: "#f44419",
           colorText: "#323231",
           colorLink: "#323231",
-          colorLinkHover: "#F36B21"
+          colorLinkHover: "#ff6c47"
         }
       }}
     >

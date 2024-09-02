@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Card, Col, Row, Skeleton } from "antd";
+import { Col, Row, Skeleton } from "antd";
 import { useGetAllServicesQuery } from "../../store/features/services/servicesApi";
-import cardImage from "../../assets/images/card-image.avif";
+
 import { Link } from "react-router-dom";
 import { message } from "antd";
 import SectionButton from "../buttons/SectionButton";
+import ServiceCards from "../cards/ServiceCards";
 
 const ServiceSection = () => {
   const { data, error, isLoading, isError } = useGetAllServicesQuery({
@@ -44,22 +45,7 @@ const ServiceSection = () => {
         <Row gutter={[16, 16]} className="mb-20">
           {data?.data?.map((service: any) => (
             <Col span={8} key={service?._id}>
-              <Card
-                hoverable
-                style={{ width: "100%", height: "100%" }}
-                cover={<img alt="example" src={cardImage} />}
-              >
-                <div>
-                  <Link
-                    to={`/services/${service._id}`}
-                    style={{ color: "var(-secondary)" }}
-                  >
-                    <p className="product-name">{service.name}</p>
-                  </Link>
-                  {/* <p>{product.description}</p> */}
-                  <p className="price">{service?.description}</p>
-                </div>
-              </Card>
+              <ServiceCards service={service}></ServiceCards>
             </Col>
           ))}
         </Row>
