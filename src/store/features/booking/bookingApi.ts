@@ -3,6 +3,14 @@ import { baseApi } from "../../api/baseApi";
 
 const reviewApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
+    createSlot: builder.mutation({
+      query: (slot: any) => ({
+        url: "/services/slots",
+        method: "POST",
+        body: slot
+      }),
+      invalidatesTags: ["slots"]
+    }),
     getAllSlot: builder.query({
       query: (query: any) => {
         const params = new URLSearchParams();
@@ -37,5 +45,6 @@ const reviewApi = baseApi.injectEndpoints({
 export const {
   useGetAllSlotQuery,
   useGetSlotDetailsQuery,
-  useGetAllBookingsQuery
+  useGetAllBookingsQuery,
+  useCreateSlotMutation
 } = reviewApi;

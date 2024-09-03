@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Table, Tag } from "antd";
+import { Flex, Table, Tag } from "antd";
 import DashboardHeading from "../../../components/typography/DashboardHeading";
 import { useGetAllSlotQuery } from "../../../store/features/booking/bookingApi";
+import CreateSlotModal from "../../../components/dashboard/slots/CreateSlotModal";
 
 const columns = [
   {
@@ -40,7 +41,10 @@ const Slots = () => {
   const { data } = useGetAllSlotQuery(undefined);
   return (
     <div>
-      <DashboardHeading>Slots</DashboardHeading>
+      <Flex style={{ margin: "20px 0" }} justify="space-between" align="center">
+        <DashboardHeading>Services</DashboardHeading>
+        <CreateSlotModal />
+      </Flex>
       <Table
         dataSource={data?.data}
         columns={columns}
