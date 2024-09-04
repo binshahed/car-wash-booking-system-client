@@ -32,12 +32,21 @@ const reviewApi = baseApi.injectEndpoints({
       }),
       providesTags: ["slots"]
     }),
+
     getAllBookings: builder.query({
       query: () => ({
         url: "/bookings",
         method: "GET"
       }),
       providesTags: ["booking"]
+    }),
+    updateSlotStatus: builder.mutation({
+      query: ({ slotId, status }) => ({
+        url: `/slots/${slotId}`,
+        method: "PATCH",
+        body: status
+      }),
+      invalidatesTags: ["slots"]
     })
   })
 });
@@ -46,5 +55,6 @@ export const {
   useGetAllSlotQuery,
   useGetSlotDetailsQuery,
   useGetAllBookingsQuery,
-  useCreateSlotMutation
+  useCreateSlotMutation,
+  useUpdateSlotStatusMutation
 } = reviewApi;

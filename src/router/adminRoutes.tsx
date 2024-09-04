@@ -1,6 +1,7 @@
 import Bookings from "../pages/dashboard/Bookings";
 import Service from "../pages/dashboard/serviceManagement/Service";
 import Slots from "../pages/dashboard/slotManagement/Slots";
+import Users from "../pages/dashboard/userManagement/Users";
 
 export const adminRoutes = [
   {
@@ -12,6 +13,11 @@ export const adminRoutes = [
     name: "Booking",
     path: "bookings",
     element: <Bookings />
+  },
+  {
+    name: "Users",
+    path: "users",
+    element: <Users />
   },
   {
     name: "Service Management",
