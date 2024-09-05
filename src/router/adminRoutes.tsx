@@ -19,24 +19,15 @@ export const adminRoutes = [
     path: "users",
     element: <Users />
   },
+
   {
-    name: "Service Management",
-    children: [
-      {
-        name: "Services",
-        path: "service",
-        element: <Service />
-      }
-    ]
+    name: "Services",
+    path: "service",
+    element: <Service />
   },
   {
-    name: "Slot Management",
-    children: [
-      {
-        name: "Slots",
-        path: "slot",
-        element: <Slots />
-      }
-    ]
+    name: "Slots",
+    path: "slot",
+    element: <Slots />
   }
 ];

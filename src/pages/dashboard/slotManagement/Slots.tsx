@@ -83,7 +83,7 @@ const Slots = () => {
   return (
     <div>
       <Flex style={{ margin: "20px 0" }} justify="space-between" align="center">
-        <DashboardHeading>Services</DashboardHeading>
+        <DashboardHeading>Slots</DashboardHeading>
         <CreateSlotModal />
       </Flex>
       <Table

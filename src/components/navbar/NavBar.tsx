@@ -42,6 +42,10 @@ const Header = () => {
 
   const items: MenuProps["items"] = [
     {
+      label: <Link to={`/${user?.role}/dashboard`}>Dashboard</Link>,
+      key: "1"
+    },
+    {
       type: "divider"
     },
     {

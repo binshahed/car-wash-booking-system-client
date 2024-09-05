@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Button, Layout, theme } from "antd";
-import { Outlet, ScrollRestoration } from "react-router-dom";
+import { Link, Outlet, ScrollRestoration } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import Sidebar from "./dashboard/Sidebar";
 
@@ -61,6 +61,8 @@ const DashboardLayout: React.FC = () => {
               height: 64
             }}
           />
+
+          <Link to="/">Return to main side</Link>
         </Header>
         <Content
           style={{
