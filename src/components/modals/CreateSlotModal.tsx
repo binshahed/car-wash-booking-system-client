@@ -8,15 +8,18 @@ import {
   DatePicker,
   TimePicker,
   DatePickerProps,
-  TimePickerProps
+  TimePickerProps,
+  message
 } from "antd";
-import { useCreateSlotMutation } from "../../../store/features/booking/bookingApi";
-import { useGetAllServicesQuery } from "../../../store/features/services/servicesApi";
+import { useCreateSlotMutation } from "../../store/features/booking/bookingApi";
+import { useGetAllServicesQuery } from "../../store/features/services/servicesApi";
+import { APIError } from "../../types/ApiError";
 
 const { Option } = Select;
 
 const CreateSlotModal = () => {
-  const [createSlot, { isLoading }] = useCreateSlotMutation();
+  const [createSlot, { isLoading, isError, error, isSuccess }] =
+    useCreateSlotMutation();
   const { data: serviceData, isLoading: isServiceLoading } =
     useGetAllServicesQuery({ limit: 100 });
   const [date, setDate] = useState("");
@@ -67,6 +70,15 @@ const CreateSlotModal = () => {
     setEndTime(timeString as string);
   };
 
+  console.log(error);
+
+  if (isError) {
+    message.error((error as APIError).data?.message);
+  }
+  if (isSuccess) {
+    message.success("Slot Created Successfully");
+  }
+
   return (
     <>
       <Button type="primary" onClick={showModal}>
@@ -112,7 +124,6 @@ const CreateSlotModal = () => {
                   {service?.name}
                 </Option>
               ))}
-              {/* Add more options as needed */}
             </Select>
           </Form.Item>
 

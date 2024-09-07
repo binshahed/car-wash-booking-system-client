@@ -1,3 +1,4 @@
+import Bookings from "../pages/dashboard/user/Bookings";
 import Profile from "../pages/dashboard/user/Profile";
 
 export const userRoutes = [
@@ -9,7 +10,12 @@ export const userRoutes = [
 
   {
     name: "Profile",
-    path: "Profile",
+    path: "profile",
     element: <Profile />
+  },
+  {
+    name: "Bookings",
+    path: "bookings",
+    element: <Bookings />
   }
 ];

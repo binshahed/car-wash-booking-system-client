@@ -16,8 +16,28 @@ const userApi = baseApi.injectEndpoints({
         body: role
       }),
       invalidatesTags: ["users"]
+    }),
+    getMe: builder.query({
+      query: () => ({
+        url: "/users/me",
+        method: "GET"
+      }),
+      providesTags: ["users"]
+    }),
+    updateProfile: builder.mutation({
+      query: (data) => ({
+        url: "/users/me",
+        method: "PATCH",
+        body: data
+      }),
+      invalidatesTags: ["users"]
     })
   })
 });
 
-export const { useGetAllUsersQuery, useUpdateUserRoleMutation } = userApi;
+export const {
+  useUpdateProfileMutation,
+  useGetAllUsersQuery,
+  useUpdateUserRoleMutation,
+  useGetMeQuery
+} = userApi;

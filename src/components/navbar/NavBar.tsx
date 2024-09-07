@@ -15,6 +15,8 @@ import {
   useCurrentUser
 } from "../../store/features/auth/authSlice";
 import { useDispatch } from "react-redux";
+import CountDown from "../CountDown";
+import { useMyBookingsQuery } from "../../store/features/booking/bookingApi";
 // import { useAppSelector } from "../../store/hooks";
 
 // import { useDispatch } from "react-redux";
@@ -32,6 +34,9 @@ const menuItems = [
 
 const Header = () => {
   //   const cart = ''//useAppSelector((state) => state.cart);
+
+  const { data: myBooking } = useMyBookingsQuery(undefined);
+
   const token = useAppSelector(useCurrentToken);
   const user = useAppSelector(useCurrentUser);
   const dispatch = useDispatch();
@@ -41,6 +46,10 @@ const Header = () => {
   };
 
   const items: MenuProps["items"] = [
+    {
+      label: <CountDown booking={myBooking} />,
+      key: "0"
+    },
     {
       label: <Link to={`/${user?.role}/dashboard`}>Dashboard</Link>,
       key: "1"

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Button, Modal, Form, Input, InputNumber, Upload, message } from "antd";
 import { UploadOutlined, EditFilled } from "@ant-design/icons";
 import axios from "axios";
-import { useUpdateServiceMutation } from "../../../store/features/services/servicesApi";
+import { useUpdateServiceMutation } from "../../store/features/services/servicesApi";
 
 const UpdateServiceModal = ({ service }: { service: any }) => {
   const [updateService, { isLoading }] = useUpdateServiceMutation();

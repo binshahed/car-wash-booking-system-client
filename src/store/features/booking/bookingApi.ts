@@ -47,6 +47,13 @@ const reviewApi = baseApi.injectEndpoints({
         body: status
       }),
       invalidatesTags: ["slots"]
+    }),
+    myBookings: builder.query({
+      query: () => ({
+        url: "/my-bookings",
+        method: "GET"
+      }),
+      providesTags: ["booking"]
     })
   })
 });
@@ -56,5 +63,6 @@ export const {
   useGetSlotDetailsQuery,
   useGetAllBookingsQuery,
   useCreateSlotMutation,
-  useUpdateSlotStatusMutation
+  useUpdateSlotStatusMutation,
+  useMyBookingsQuery
 } = reviewApi;

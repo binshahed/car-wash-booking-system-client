@@ -8,8 +8,8 @@ import {
 import { convertMinutesToHoursAndMinutes } from "../../../utils/dateTime";
 import { useState } from "react";
 import { DeleteFilled, ExclamationCircleFilled } from "@ant-design/icons";
-import CreateServiceModal from "../../../components/dashboard/service/CreateServiceModal";
-import UpdateServiceModal from "../../../components/dashboard/service/UpdateServiceModal";
+import CreateServiceModal from "../../../components/modals/CreateServiceModal";
+import UpdateServiceModal from "../../../components/modals/UpdateServiceModal";
 
 const { confirm } = Modal;
 

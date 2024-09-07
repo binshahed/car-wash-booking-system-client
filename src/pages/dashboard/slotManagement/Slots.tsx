@@ -6,8 +6,9 @@ import {
   useGetAllSlotQuery,
   useUpdateSlotStatusMutation
 } from "../../../store/features/booking/bookingApi";
-import CreateSlotModal from "../../../components/dashboard/slots/CreateSlotModal";
+
 import { useState } from "react";
+import CreateSlotModal from "../../../components/modals/CreateSlotModal";
 
 const Slots = () => {
   const [slotId, setSlotId] = useState("");
