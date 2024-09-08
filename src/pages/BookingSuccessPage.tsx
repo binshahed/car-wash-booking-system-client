@@ -10,6 +10,9 @@ const BookingSuccessPage = () => {
     const paymentId = query.get("payment_id");
     const status = query.get("status");
 
+    console.log("paymentId", paymentId, "status", status);
+    
+
     // Make an API call to your server to verify payment
     const verifyPayment = async () => {
       try {

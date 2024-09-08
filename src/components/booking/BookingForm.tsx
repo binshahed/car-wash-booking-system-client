@@ -3,18 +3,20 @@ import { Button, Form, Input } from "antd";
 import { useState } from "react";
 import { useAppSelector } from "../../store/hooks";
 import { useCurrentUser } from "../../store/features/auth/authSlice";
+import { generateRandom20DigitString } from "../../utils/genaretString";
 
 const BookingForm = ({ slotDetails }: { slotDetails: any }) => {
   const [loading, setLoading] = useState(false);
   const user = useAppSelector(useCurrentUser);
-  console.log();
+  console.log(slotDetails);
 
   const handlePayment = async (values: any) => {
     setLoading(true);
     const formData = {
       store_id: "aamarpaytest",
-      tran_id: slotDetails?.data?._id,
-      success_url: "http://localhost:5173/payment-success",
+      tran_id: generateRandom20DigitString(), //slotDetails?.data?._id,
+      success_url:
+        "https://car-wash-booking-system-client-opal.vercel.app/booking-success",
       fail_url: "http://www.merchantdomain.com/failedpage.html",
       cancel_url: "http://www.merchantdomain.com/cancelpage.html",
       amount: "10.0",

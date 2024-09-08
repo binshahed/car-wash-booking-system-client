@@ -13,6 +13,7 @@ import MainLayout from "../components/layout/MainLayout";
 import { routeGenerator } from "../utils/routesGenerator";
 import { adminRoutes } from "./adminRoutes";
 import { userRoutes } from "./userRoutes";
+import BookingSuccessPage from "../pages/BookingSuccessPage";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <BookingPage />
+          </ProtectedRoute>
+        )
+      },
+      {
+        path: "booking-success",
+        element: (
+          <ProtectedRoute>
+            <BookingSuccessPage />
           </ProtectedRoute>
         )
       }
