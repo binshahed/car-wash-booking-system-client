@@ -20,6 +20,8 @@ const BookingPage = () => {
   const slotId = location?.state?.slotId;
   const { data: slotDetails, isLoading } = useGetSlotDetailsQuery(slotId);
 
+  console.log("booking page");
+
   // Redirect to "/services" if serviceId or slotId is not present
   useEffect(() => {
     if (!serviceId || !slotId) {
@@ -41,7 +43,6 @@ const BookingPage = () => {
     >
       <h4 className="heading text-center">Book Your Slot</h4>
       <Row gutter={16}>
-        {/* Left Side: Display Service and Slot Details */}
         <Col lg={12} md={12} sm={24} xs={24}>
           {isLoading ? (
             <Card
@@ -53,7 +54,6 @@ const BookingPage = () => {
                 padding: "20px",
                 backgroundColor: "#f0f9ff"
               }}
-              bodyStyle={{ padding: "0" }}
             >
               <Skeleton />
             </Card>
@@ -67,7 +67,6 @@ const BookingPage = () => {
                 padding: "20px",
                 backgroundColor: "#f0f9ff"
               }}
-              bodyStyle={{ padding: "0" }}
             >
               {/* Header */}
               <Title

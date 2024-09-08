@@ -44,7 +44,7 @@ const ServiceSection = () => {
       {
         <Row gutter={[16, 16]} className="mb-20">
           {data?.data?.map((service: any) => (
-            <Col span={8} key={service?._id}>
+            <Col md={8} sm={24} key={service?._id}>
               <ServiceCards service={service}></ServiceCards>
             </Col>
           ))}

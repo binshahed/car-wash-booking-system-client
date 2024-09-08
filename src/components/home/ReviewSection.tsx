@@ -5,69 +5,41 @@ import ReviewForm from "../reviews/ReviewForm";
 
 const ReviewSection = () => {
   return (
-    <section>
+    <section className="py-10">
       <div
-        className="review-section"
+        className="review-section flex justify-center items-center relative bg-cover bg-center bg-no-repeat"
         style={{
           margin: "20px 0",
           backgroundImage: `url(${bgImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-
-          position: "relative",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
           padding: "20px 10%"
         }}
       >
         {/* Overlay */}
-        <div
-          style={{
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            zIndex: 1
-          }}
-        />
+        <div className="absolute inset-0 bg-black opacity-50 z-1" />
+
         {/* Content */}
         <div
-          className="container"
-          style={{
-            position: "relative",
-            zIndex: 2,
-            color: "#fff",
-            width: "100%" // Ensure the content takes full width
-          }}
+          className="relative z-2 text-white w-full max-w-screen-lg"
+          style={{ width: "100%" }} // Ensure the content takes full width
         >
           <Row
             gutter={[16, 16]} // Add responsive gutter for spacing
             justify="center" // Center content horizontally
           >
-            <Col md={12} xs={24} sm={24}>
+            <Col xs={24} sm={24} md={12}>
               <div
                 style={{
-                  backgroundColor: "rgba(0, 0, 0, 0.568)",
+                  background: "#00000076",
                   padding: "20px",
-                  marginTop: "50px",
-                  textAlign: "center" // Center text in small screens
+                  borderRadius: "10px"
                 }}
+                className="bg-black bg-opacity-60 p-5 mt-5 text-center rounded-lg shadow-md"
               >
                 <ReviewForm />
               </div>
             </Col>
             <Col xs={24} sm={24} md={12}>
-              <div
-                style={{
-                  padding: "20px",
-                  marginTop: "50px",
-                  textAlign: "center"
-                }}
-              >
+              <div className="p-5 mt-5 text-center">
                 <ReviewSlider />
               </div>
             </Col>

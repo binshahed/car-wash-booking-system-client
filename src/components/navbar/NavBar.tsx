@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Avatar, Space, Dropdown, MenuProps } from "antd";
+import { useEffect, useState } from "react";
+import { Avatar, Space, Dropdown, MenuProps, Skeleton } from "antd";
 import {
   CloseOutlined,
   MenuUnfoldOutlined,
@@ -14,12 +14,9 @@ import {
   useCurrentToken,
   useCurrentUser
 } from "../../store/features/auth/authSlice";
-import { useDispatch } from "react-redux";
 import CountDown from "../CountDown";
 import { useMyBookingsQuery } from "../../store/features/booking/bookingApi";
-// import { useAppSelector } from "../../store/hooks";
-
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const menuItems = [
   { title: "Home", url: "/", cName: "nav-links" },
@@ -33,44 +30,35 @@ const menuItems = [
 ];
 
 const Header = () => {
-  //   const cart = ''//useAppSelector((state) => state.cart);
-
-  const { data: myBooking } = useMyBookingsQuery(undefined);
-
+  const { data: myBooking, refetch, isLoading } = useMyBookingsQuery(undefined);
   const token = useAppSelector(useCurrentToken);
   const user = useAppSelector(useCurrentUser);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (token && user) {
+      refetch();
+    }
+  }, [token, user, refetch]);
 
   const handleLogout = () => {
     dispatch(logout());
   };
 
+  // Properly filtering items by checking type before including them in the array
   const items: MenuProps["items"] = [
-    {
-      label: <CountDown booking={myBooking} />,
-      key: "0"
-    },
-    {
-      label: <Link to={`/${user?.role}/dashboard`}>Dashboard</Link>,
-      key: "1"
-    },
-    {
-      type: "divider"
-    },
-    {
-      label: "Logout",
-      key: "3",
-      onClick: handleLogout
-    }
-  ];
+    isLoading
+      ? { label: <Skeleton />, key: "0" }
+      : user?.email && myBooking?.data?.length > 0
+      ? { label: <CountDown booking={myBooking} />, key: "0" }
+      : { type: "divider" },
+    { label: <Link to={`/${user?.role}/dashboard`}>Dashboard</Link>, key: "1" },
+    { type: "divider" },
+    { label: "Logout", key: "3", onClick: handleLogout }
+  ]; // Ensures type safety by filtering out invalid types
 
   return (
     <Space size={20}>
-      {/* <Link to="/cart">
-        <Badge count={cart.items.length}>
-          <Avatar size={40} icon={<ShoppingCartOutlined />} />
-        </Badge>
-      </Link> */}
       {token && user ? (
         <Dropdown menu={{ items }} trigger={["click"]}>
           <a onClick={(e) => e.preventDefault()}>
@@ -87,8 +75,8 @@ const Header = () => {
 const NavBar = () => {
   const [active, setActive] = useState(false);
 
-  const handleClick = () => {
-    setActive(!active);
+  const toggleMenu = () => {
+    setActive((prevActive) => !prevActive);
   };
 
   return (
@@ -101,7 +89,7 @@ const NavBar = () => {
           alt="logo"
         />
       </Link>
-      <div className="menu-icon" onClick={handleClick}>
+      <div className="menu-icon" onClick={toggleMenu}>
         {active ? (
           <CloseOutlined style={{ color: "#fff" }} />
         ) : (

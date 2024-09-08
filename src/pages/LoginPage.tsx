@@ -10,7 +10,7 @@ import { useLoginMutation } from "../store/features/auth/authApi";
 import { APIError } from "../types/ApiError";
 
 const LoginPage = () => {
-  const [login, { data, isLoading }] = useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const location = useLocation();
@@ -27,7 +27,7 @@ const LoginPage = () => {
       const targetPath =
         state?.from && state.from.startsWith("/") ? state.from : "/";
       console.log("Navigating to:", targetPath);
-      navigate(targetPath);
+      navigate(targetPath, { replace: true });
     } catch (err) {
       const apiError = err as APIError;
       message.error(apiError?.data?.message);
@@ -39,9 +39,6 @@ const LoginPage = () => {
   ) => {
     console.log("Failed:", errorInfo);
   };
-
-  console.log(location);
-  
 
   return (
     <div className="box-style">
