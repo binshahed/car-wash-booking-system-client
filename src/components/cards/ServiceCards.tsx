@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Card, Skeleton } from "antd";
+import { Button, Card, Skeleton } from "antd";
 import { Link } from "react-router-dom";
 import cardImage from "../../assets/images/card-image.avif";
 
@@ -30,6 +30,11 @@ const ServiceCards = ({ service }: { service: any }) => {
         </Link>
         {/* <p>{product.description}</p> */}
         <p className="price">{service?.description}</p>
+        <p className="text-primary text-bold">${service?.price}</p>
+        <br />
+        <Link to={`/compare-service`} state={{ serviceId: service?._id }}>
+          <Button type="primary">Compare</Button>
+        </Link>
       </div>
     </Card>
   );

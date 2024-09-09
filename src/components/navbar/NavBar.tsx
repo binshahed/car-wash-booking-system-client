@@ -21,7 +21,7 @@ import { useDispatch } from "react-redux";
 const menuItems = [
   { title: "Home", url: "/", cName: "nav-links" },
   { title: "Services", url: "/services", cName: "nav-links" },
-  { title: "Products", url: "/products", cName: "nav-links" },
+  { title: "Compare", url: "/compare-service", cName: "nav-links" },
   {
     title: "Product Management",
     url: "/product-management",

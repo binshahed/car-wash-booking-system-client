@@ -80,6 +80,10 @@
   color: var(--primary);
 }
 
+.text-bold {
+  font-weight: bold;
+}
+
 .text-secondary {
   color: var(--secondary);
 }

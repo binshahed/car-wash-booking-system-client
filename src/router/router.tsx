@@ -14,6 +14,7 @@ import { routeGenerator } from "../utils/routesGenerator";
 import { adminRoutes } from "./adminRoutes";
 import { userRoutes } from "./userRoutes";
 import BookingSuccessPage from "../pages/BookingSuccessPage";
+import ComparePage from "../pages/ComparePage";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <HomePage />
+      },
+      {
+        path: "/compare-service",
+        element: <ComparePage />
       },
       {
         path: "login",

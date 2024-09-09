@@ -1,0 +1,44 @@
+.compare-page-container {
+    /* min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .compare-page-content {
+    padding: 30px;
+    /* background-color: white; */
+    border-radius: 10px;
+    /* box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); */
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .compare-page-title {
+    text-align: center;
+    font-weight: 600;
+    color: #3b5998;
+  }
+  
+  .compare-page-subtitle {
+    text-align: center;
+    color: #888;
+    margin-bottom: 30px;
+  }
+  
+  .compare-select-card {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .compare-result-card {
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
