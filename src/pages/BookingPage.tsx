@@ -138,7 +138,7 @@ const BookingPage = () => {
               boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)"
             }}
           >
-            <BookingForm slotDetails={slotDetails} />
+            <BookingForm slotDetails={slotDetails?.data} />
           </Card>
         </Col>
       </Row>

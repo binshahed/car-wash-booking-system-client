@@ -54,6 +54,14 @@ const reviewApi = baseApi.injectEndpoints({
         method: "GET"
       }),
       providesTags: ["booking"]
+    }),
+    createBooking: builder.mutation({
+      query: (booking: any) => ({
+        url: "/bookings",
+        method: "POST",
+        body: booking
+      }),
+      invalidatesTags: ["booking"]
     })
   })
 });
@@ -64,5 +72,6 @@ export const {
   useGetAllBookingsQuery,
   useCreateSlotMutation,
   useUpdateSlotStatusMutation,
-  useMyBookingsQuery
+  useMyBookingsQuery,
+  useCreateBookingMutation
 } = reviewApi;
