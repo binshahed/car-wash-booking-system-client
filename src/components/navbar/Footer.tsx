@@ -11,10 +11,19 @@ import {
 } from "@ant-design/icons";
 import logo from "../../assets/logo.png";
 import "./footerStyle.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer id="footer" style={{ backgroundImage: `url(${bgImage})` }}>
+    <footer
+      className="footer"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        textAlign: "center",
+        backgroundSize: "cover",
+        backgroundPosition: "center"
+      }}
+    >
       <div className="container">
         <Row gutter={[16, 16]}>
           <Col xs={24} sm={12} md={6}>
@@ -27,10 +36,10 @@ const Footer = () => {
               />
             </a>
             <div className="footer-about">
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s.
+              <p style={{ marginTop: "20px" }}>
+                We believe in building long-lasting relationships with our
+                customers, which is why transparency, honesty, and integrity are
+                at the core of everything we do.
               </p>
             </div>
           </Col>
@@ -44,24 +53,24 @@ const Footer = () => {
               />
               <ul className="use-links">
                 <li>
-                  <a href="index.html">
+                  <Link to="/">
                     <RightOutlined /> Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="about.html">
+                  <Link to="/about-us">
                     <RightOutlined /> About Us
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="gallery.html">
-                    <RightOutlined /> Gallery
-                  </a>
+                  <Link to="/services">
+                    <RightOutlined /> Services
+                  </Link>
                 </li>
                 <li>
-                  <a href="contact.html">
+                  <Link to="/contact-us">
                     <RightOutlined /> Contact
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -76,17 +85,17 @@ const Footer = () => {
               />
               <ul className="social-icons">
                 <li>
-                  <a href="">
+                  <a href="https://www.facebook.com/nexorionIT">
                     <FacebookOutlined /> Facebook
                   </a>
                 </li>
                 <li>
-                  <a href="">
+                  <a href="https://www.facebook.com/nexorionIT">
                     <InstagramOutlined /> Instagram
                   </a>
                 </li>
                 <li>
-                  <a href="">
+                  <a href="https://www.facebook.com/nexorionIT">
                     <LinkedinOutlined /> Linkedin
                   </a>
                 </li>
@@ -103,17 +112,16 @@ const Footer = () => {
               />
               <ul className="address-links">
                 <li className="address1">
-                  <EnvironmentOutlined /> Kolathur ramankulam- Malappuram Dt
-                  Kerala 679338
+                  <EnvironmentOutlined /> Alif Housing, Adabor, Dhaka.
                 </li>
                 <li>
                   <a href="">
-                    <PhoneOutlined /> +91 90904500112
+                    <PhoneOutlined /> +88 01624 028821
                   </a>
                 </li>
                 <li>
                   <a href="">
-                    <MailOutlined /> mail@1234567.com
+                    <MailOutlined /> info@nexorion.com
                   </a>
                 </li>
               </ul>
@@ -121,6 +129,7 @@ const Footer = () => {
           </Col>
         </Row>
       </div>
+      <p style={{ textAlign: "center", marginTop: "20px" }}>@2024</p>
     </footer>
   );
 };

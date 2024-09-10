@@ -15,6 +15,9 @@ import { adminRoutes } from "./adminRoutes";
 import { userRoutes } from "./userRoutes";
 import BookingSuccessPage from "../pages/BookingSuccessPage";
 import ComparePage from "../pages/ComparePage";
+import AboutUsPage from "../pages/AboutUsPage";
+import ContactUsPage from "../pages/ContactUsPage";
+import PaymentSuccess from "../pages/PaymentSuccess";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +31,18 @@ const router = createBrowserRouter([
       {
         path: "/compare-service",
         element: <ComparePage />
+      },
+      {
+        path: "/about-us",
+        element: <AboutUsPage />
+      },
+      {
+        path: "/contact-us",
+        element: <ContactUsPage />
+      },
+      {
+        path: "/payment-success",
+        element: <PaymentSuccess />
       },
       {
         path: "login",

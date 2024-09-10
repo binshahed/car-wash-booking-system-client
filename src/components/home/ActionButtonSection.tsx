@@ -1,6 +1,7 @@
 import { Col, Row } from "antd";
 import actionImg from "../../assets/images/washer.png";
 import SectionButton from "../buttons/SectionButton";
+import { Link } from "react-router-dom";
 
 const ActionButtonSection = () => {
   return (
@@ -31,7 +32,9 @@ const ActionButtonSection = () => {
               comfortable. They have state-of-the-art technology to ensure your
               car is clean and safe.
             </p>
-            <SectionButton>Read More</SectionButton>
+            <Link to="/contact-us">
+              <SectionButton>Read More</SectionButton>
+            </Link>
           </div>
         </Col>
         <Col

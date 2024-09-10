@@ -4,11 +4,15 @@ import { Button, Layout, theme } from "antd";
 import { Link, Outlet, ScrollRestoration } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import Sidebar from "./dashboard/Sidebar";
+import { useDispatch } from "react-redux";
+import { logout } from "../../store/features/auth/authSlice";
 
 const { Header, Sider, Content } = Layout;
 
 const DashboardLayout: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
+
+  const dispatch = useDispatch();
   const {
     token: { colorBgContainer }
   } = theme.useToken();
@@ -62,7 +66,8 @@ const DashboardLayout: React.FC = () => {
             }}
           />
 
-          <Link to="/">Return to main side</Link>
+          <Link to="/">Return to Home</Link>
+          <Button onClick={() => dispatch(logout())}>Logout</Button>
         </Header>
         <Content
           style={{

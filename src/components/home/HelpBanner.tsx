@@ -1,5 +1,6 @@
 import { Col, Row } from "antd";
 import SectionButton from "../buttons/SectionButton";
+import { Link } from "react-router-dom";
 
 const HelpBanner = () => {
   return (
@@ -25,7 +26,9 @@ const HelpBanner = () => {
             alignItems: "center"
           }}
         >
-          <SectionButton>Request A Call Back</SectionButton>
+          <Link to="/contact-us">
+            <SectionButton>Request A Call Back</SectionButton>
+          </Link>
         </Col>
       </Row>
     </section>

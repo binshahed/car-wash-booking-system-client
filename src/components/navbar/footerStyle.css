@@ -1,20 +1,12 @@
-#footer {
+.footer {
   background: #f7f7f7;
-  padding: 3rem;
+  /* paddingTop: 3rem; */
   /* padding-top: 5rem; */
   padding-top: 7rem;
   padding-bottom: 80px;
   color: #fff
 }
-#footer2 {
-  background: #f7f7f7;
-  padding: 3rem;
-  margin-top: 0px;
-  /* padding-top: 5rem; */
-  padding-top: 7rem;
-  padding-bottom: 80px;
-  background-image: url(../images/cards/v748-toon-111.png);
-}
+
 
 .social-links h2 {
   padding-bottom: 15px;

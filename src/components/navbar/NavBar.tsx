@@ -21,12 +21,18 @@ import { useDispatch } from "react-redux";
 const menuItems = [
   { title: "Home", url: "/", cName: "nav-links" },
   { title: "Services", url: "/services", cName: "nav-links" },
-  { title: "Compare", url: "/compare-service", cName: "nav-links" },
+
   {
-    title: "Product Management",
-    url: "/product-management",
+    title: "About Us",
+    url: "/about-us",
     cName: "nav-links"
-  }
+  },
+  {
+    title: "Contact Us",
+    url: "/contact-us",
+    cName: "nav-links"
+  },
+  { title: "Compare", url: "/compare-service", cName: "nav-links" }
 ];
 
 const Header = () => {
@@ -66,7 +72,9 @@ const Header = () => {
           </a>
         </Dropdown>
       ) : (
-        <Link to="/login">Login</Link>
+        <Link to="/login" style={{ color: "#fff" }}>
+          Login
+        </Link>
       )}
     </Space>
   );
