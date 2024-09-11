@@ -1,0 +1,37 @@
+.dashboard-home {
+    padding: 20px;
+    
+  }
+  
+  .dashboard-main-card {
+    padding: 20px;
+    height: 100%; 
+    background-color: var(--secondary);
+    color: white;
+  }
+  
+  .dashboard-date {
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .dashboard-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .welcome-message {
+    margin-bottom: 20px;
+  }
+  
+  .welcome-message h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .welcome-message p {
+    font-size: 16px;
+  }
+  

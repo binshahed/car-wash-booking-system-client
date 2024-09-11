@@ -1,11 +1,12 @@
 import Bookings from "../pages/dashboard/user/Bookings";
 import Profile from "../pages/dashboard/user/Profile";
+import UserDashboardHomePage from "../pages/dashboard/user/UserDashboardHomePage";
 
 export const userRoutes = [
   {
     name: "Dashboard",
     path: "dashboard",
-    element: <p>Dashboard</p>
+    element: <UserDashboardHomePage />
   },
 
   {
