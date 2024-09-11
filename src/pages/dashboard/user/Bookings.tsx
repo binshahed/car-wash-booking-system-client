@@ -15,7 +15,18 @@ const columns = [
     title: "Date",
     dataIndex: "slot",
     key: "slot",
+
     render: (slot: any) => slot?.date
+  },
+  {
+    title: "Vehicle",
+    render: (record: any) =>
+      `${record?.vehicleBrand} ${record?.vehicleModel} ${record?.manufacturingYear}`
+  },
+  {
+    title: "Registration",
+    dataIndex: "registrationPlate",
+    key: "registrationPlate"
   },
   {
     title: "Time",
@@ -24,16 +35,19 @@ const columns = [
   },
   {
     title: "Status",
-    dataIndex: "isBooked",
-    key: "isBooked",
-    render: (slot: any) =>
-      slot === "booked" ? (
+    dataIndex: "slot",
+    key: "slot",
+    render: (slot: any) => {
+      console.log(slot);
+
+      return slot.isBooked === "booked" ? (
         <Tag color="orange">Booked</Tag>
-      ) : slot === "available" ? (
+      ) : slot.isBooked === "available" ? (
         <Tag color="green">Available</Tag>
       ) : (
         <Tag color="red">Canceled</Tag>
-      )
+      );
+    }
   }
 ];
 
@@ -84,16 +98,19 @@ const Bookings = () => {
   const items: TabsProps["items"] = [
     {
       key: "1",
-      label: "Ongoing Bookings",
-      children: renderTable(ongoing, isLoading)
-    },
-    {
-      key: "2",
       label: "Upcoming Bookings",
       children: renderTable(upcoming, isLoading)
     },
+    {
+      key: "2",
+      label: "Ongoing Bookings",
+      children: renderTable(ongoing, isLoading)
+    },
+
     { key: "3", label: "Past Bookings", children: renderTable(past, isLoading) }
   ];
+
+  console.log("D", data);
 
   return (
     <div>

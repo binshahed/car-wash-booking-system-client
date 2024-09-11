@@ -5,7 +5,13 @@ import { useCurrentUser } from "../../store/features/auth/authSlice";
 import { useCreateBookingMutation } from "../../store/features/booking/bookingApi";
 import { useEffect } from "react";
 
-const BookingForm = ({ slotDetails }: { slotDetails: any }) => {
+const BookingForm = ({
+  slotDetails,
+  isSlotLoading
+}: {
+  slotDetails: any;
+  isSlotLoading: boolean;
+}) => {
   const user = useAppSelector(useCurrentUser);
   const [createBooking, { data, isSuccess, isError, error, isLoading }] =
     useCreateBookingMutation();
@@ -50,7 +56,7 @@ const BookingForm = ({ slotDetails }: { slotDetails: any }) => {
         initialValue={user?.email}
         rules={[
           { required: true, message: "Please enter your email" },
-          { type: "email", message: "Please enter a valid email" },
+          { type: "email", message: "Please enter a valid email" }
         ]}
       >
         <Input placeholder="Enter your email" disabled />
@@ -62,7 +68,7 @@ const BookingForm = ({ slotDetails }: { slotDetails: any }) => {
         initialValue={user?.phone}
         rules={[
           { required: true, message: "Please enter your phone" },
-          { type: "string", message: "Please enter a valid phone" },
+          { type: "string", message: "Please enter a valid phone" }
         ]}
       >
         <Input placeholder="Enter your phone" />
@@ -77,7 +83,13 @@ const BookingForm = ({ slotDetails }: { slotDetails: any }) => {
         <Input placeholder="Enter your address" />
       </Form.Item>
 
-      <Button type="primary" htmlType="submit" block loading={isLoading}>
+      <Button
+        type="primary"
+        htmlType="submit"
+        block
+        loading={isLoading}
+        disabled={isSlotLoading || isSuccess}
+      >
         Pay Now
       </Button>
     </Form>

@@ -1,12 +1,26 @@
 .footer {
   background: #f7f7f7;
-  /* paddingTop: 3rem; */
-  /* padding-top: 5rem; */
   padding-top: 7rem;
   padding-bottom: 80px;
-  color: #fff
+  color: #fff;
+  position: relative; /* To ensure the overlay is positioned correctly */
+  overflow: hidden;
 }
 
+.footer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.774); /* Adjust the opacity as needed */
+  z-index: 1;
+}
+
+.footer .container {
+  position: relative;
+  z-index: 2; /* Ensures content is above the overlay */
+}
 
 .social-links h2 {
   padding-bottom: 15px;

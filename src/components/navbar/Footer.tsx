@@ -19,22 +19,23 @@ const Footer = () => {
       className="footer"
       style={{
         backgroundImage: `url(${bgImage})`,
-        textAlign: "center",
+        textAlign: "left",
         backgroundSize: "cover",
         backgroundPosition: "center"
       }}
     >
+      <div className="footer-overlay"></div> {/* Overlay added here */}
       <div className="container">
         <Row gutter={[16, 16]}>
-          <Col xs={24} sm={12} md={6}>
-            <a href="index.html">
+          <Col xs={24} sm={12} md={6} style={{ textAlign: "left" }}>
+            <Link to="/">
               <img
                 style={{ width: "200px" }}
                 src={logo}
-                alt=""
+                alt="logo"
                 className="img-fluid logo-footer"
               />
-            </a>
+            </Link>
             <div className="footer-about">
               <p style={{ marginTop: "20px" }}>
                 We believe in building long-lasting relationships with our
@@ -129,7 +130,7 @@ const Footer = () => {
           </Col>
         </Row>
       </div>
-      <p style={{ textAlign: "center", marginTop: "20px" }}>@2024</p>
+      <p style={{ textAlign: "center", marginTop: "20px" }}>© 2024 Nex Orion</p>
     </footer>
   );
 };
