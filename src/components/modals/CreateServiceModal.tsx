@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import { Button, Modal, Form, Input, InputNumber, Upload, message } from "antd";
@@ -32,7 +33,7 @@ const CreateServiceModal = () => {
       form.resetFields();
       setFileList([]);
     } catch (error) {
-      console.log("Validation failed:", error);
+      message.error("Validation Error");
     }
   };
 

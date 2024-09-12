@@ -10,8 +10,6 @@ const BookingCard = ({ bookingData }: any) => {
     "YYYY-MM-DD"
   )}T${bookingData?.slot?.startTime}:00`;
 
-  console.log(bookingData);
-
   // Use the countdown hook
   const { days, hours, minutes, seconds } = useCountdown(targetDateTime);
 

@@ -47,7 +47,6 @@ const UpdateServiceModal = ({ service }: { service: any }) => {
       }
 
       const formData = { ...values, imageUrl };
-      console.log(formData);
 
       updateService({ serviceId: service?._id, data: formData });
 

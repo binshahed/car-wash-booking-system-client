@@ -50,7 +50,7 @@ function ReviewSlider() {
     ]
   };
 
-  console.log(data);
+
 
   return (
     <div

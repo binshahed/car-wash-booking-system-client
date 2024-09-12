@@ -11,8 +11,7 @@ const ServiceSection = () => {
   const { data, error, isLoading, isError } = useGetAllServicesQuery({
     limit: 6
   });
-  console.log(data);
-  console.log(error);
+
   if (error) {
     message.error("Failed to load services");
     return null;

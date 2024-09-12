@@ -33,8 +33,8 @@ const SignUpPage = () => {
           token: res.data.token
         })
       );
-      message.success("Login successful");
-      navigate(`/`);
+      message.success("Registration successful");
+      navigate(`/login`);
     } catch (err) {
       console.log(err);
 

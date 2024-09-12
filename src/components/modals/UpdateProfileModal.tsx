@@ -32,7 +32,6 @@ const UpdateProfileModal = ({ profile }: { profile: any }) => {
       const values = await form.validateFields();
 
       const formData = { ...values };
-      console.log(formData);
 
       await updateProfile(formData);
 

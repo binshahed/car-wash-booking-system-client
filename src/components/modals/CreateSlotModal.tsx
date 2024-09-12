@@ -38,7 +38,7 @@ const CreateSlotModal = () => {
       values.date = date;
       values.startTime = startTime;
       values.endTime = endTime;
-      console.log(values);
+
       // Call your mutation here
       await createSlot(values);
       form.resetFields();
@@ -70,7 +70,7 @@ const CreateSlotModal = () => {
     setEndTime(timeString as string);
   };
 
-  console.log(error);
+
 
   if (isError) {
     message.error((error as APIError).data?.message);
