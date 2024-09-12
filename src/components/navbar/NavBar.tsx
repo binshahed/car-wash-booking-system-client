@@ -51,6 +51,17 @@ const Header = () => {
 
   // Properly filtering items by checking type before including them in the array
   const items: MenuProps["items"] = [
+    user?.email
+      ? {
+          label: (
+            <>
+              <span style={{ fontWeight: "bold" }}>{user?.name}</span> <br />{" "}
+              {user?.email}
+            </>
+          ),
+          key: user.name
+        }
+      : { type: "divider" },
     isLoading
       ? { label: <Skeleton />, key: "0" }
       : user?.email && myBooking?.data?.length > 0
@@ -58,6 +69,7 @@ const Header = () => {
       : { type: "divider" },
     { label: <Link to={`/${user?.role}/dashboard`}>Dashboard</Link>, key: "1" },
     { type: "divider" },
+
     { label: "Logout", key: "3", onClick: handleLogout }
   ]; // Ensures type safety by filtering out invalid types
 
