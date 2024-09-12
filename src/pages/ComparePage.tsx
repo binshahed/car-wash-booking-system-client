@@ -67,7 +67,7 @@ const ComparePage = () => {
       <div style={{ position: "relative", marginBottom: "50px" }}>
         <img
           src={aboutUsImage}
-          alt="About Us"
+          alt="Compare"
           style={{
             width: "100%",
             height: "400px",
@@ -119,16 +119,16 @@ const ComparePage = () => {
         </div>
       </div>
       <div className="container">
-        <div className="compare-page-container">
-          <div className="compare-page-content">
+        <div>
+          <div>
             <br />
             <Row gutter={[16, 16]} justify="center">
               <Col md={12} sm={24}>
-                <Card hoverable className="compare-select-card">
+                <Card>
                   <Select
                     defaultValue={serviceId}
                     placeholder="Select a service"
-                    style={{ width: "100%" }}
+                    style={{ minWidth: "200px", width: "100%" }}
                     onChange={handleServiceChange}
                     size="large"
                     options={data}
@@ -136,11 +136,11 @@ const ComparePage = () => {
                 </Card>
               </Col>
               <Col md={12} sm={24}>
-                <Card hoverable className="compare-select-card">
+                <Card>
                   <Select
-                    mode="multiple" // Enable multiple service selection
+                    mode="multiple"
                     placeholder="Compare with other services"
-                    style={{ width: "100%" }}
+                    style={{ minWidth: "200px", width: "100%" }}
                     onChange={handleCompareChange}
                     size="large"
                     options={data}
@@ -157,7 +157,7 @@ const ComparePage = () => {
             >
               <Col md={12} sm={24}>
                 {selectedService ? (
-                  <Card hoverable className="compare-result-card">
+                  <Card hoverable>
                     <Title level={4}>{selectedService.label}</Title>
                     <Image
                       src={selectedService.imageUrl}
