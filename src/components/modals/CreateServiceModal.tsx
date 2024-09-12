@@ -5,6 +5,7 @@ import { Button, Modal, Form, Input, InputNumber, Upload, message } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { useCreateServiceMutation } from "../../store/features/services/servicesApi";
+import { config } from "../../config";
 
 const CreateServiceModal = () => {
   const [createService, { isLoading, isSuccess }] = useCreateServiceMutation();
@@ -51,7 +52,7 @@ const CreateServiceModal = () => {
   const uploadImageToImgBB = async (file: any) => {
     const formData = new FormData();
     formData.append("image", file.originFileObj);
-    const apiKey = "9f9bd6cf0f193d3c6b4f9a630c233e03";
+    const apiKey = config.IMAGE_BB_KEY;
 
     try {
       setUploadingImage(true);

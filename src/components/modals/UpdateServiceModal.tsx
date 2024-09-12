@@ -4,6 +4,7 @@ import { Button, Modal, Form, Input, InputNumber, Upload, message } from "antd";
 import { UploadOutlined, EditFilled } from "@ant-design/icons";
 import axios from "axios";
 import { useUpdateServiceMutation } from "../../store/features/services/servicesApi";
+import { config } from "../../config";
 
 const UpdateServiceModal = ({ service }: { service: any }) => {
   const [updateService, { isLoading, isSuccess }] = useUpdateServiceMutation();
@@ -73,7 +74,7 @@ const UpdateServiceModal = ({ service }: { service: any }) => {
   const uploadImageToImgBB = async (file: any) => {
     const formData = new FormData();
     formData.append("image", file.originFileObj);
-    const apiKey = "9f9bd6cf0f193d3c6b4f9a630c233e03";
+    const apiKey = config.IMAGE_BB_KEY;
 
     try {
       setImageUploading(true);

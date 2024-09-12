@@ -1,19 +1,11 @@
 
-<div align="center">
-  <h1>comprehensive project readme template</h1>
-</div>
-
----
-
-# Project Name
+# Auto Cleaning  - [Auto Cleaning](https://car-wash-booking-system-client-opal.vercel.app/)
 
 ## Introduction
 
-Brief introduction or tagline about the project.
+The Auto Cleaning app allows users to browse and book a range of car wash and service options. Users can quickly locate the service they want, choose a suitable time slot, and confirm their reservation. Administrators can manage user roles, customize booking slots depending on the service offered, and monitor all bookings to ensure smooth operations.
 
-## Project Description
 
-Detailed description of the project, including its purpose and goals.
 
 ## Features
 
@@ -21,13 +13,18 @@ Detailed description of the project, including its purpose and goals.
 - Services
 - Booking a slot
 - Give feedback
+- Responsive Design
+- Payment Gateway
 
 
 ## Technology Stack
 
-- React
-- TypeScript
+
+- React js
+- Typescript
 - Ant Design
+- Readux toolkit & RTK query
+- aamarpay
 
 
 ## Installation Guideline
@@ -36,25 +33,48 @@ Instructions on how to install, configure, and get the project running locally.
 
 ### Prerequisites
 
-- List any software or dependencies that need to be installed beforehand (if any).
+Make sure you have the following software installed on your machine:
+
+* Git
+* Node.js (v20.9.0 recommended)
+* npm installer
 
 ### Installation Steps
 
-1. Step-by-step instructions on how to install the project.
-2. Provide code examples or commands for clarity.
+1. First, clone the repository using the following command:
 
-### Configuration
+``` 
+https://github.com/binshahed/car-wash-booking-system-client.git
+```
 
-1. Create a `.env` file in the root directory of the project.
-2. Add necessary configuration variables in the `.env` file.
-   Example:
-   ```bash
-    PORT=3000
-    DB_URL=your_db_connection_uri
-    API_KEY=your_api_key_here
-   ```
-3. Explain any specific configuration requirements or variables used in your project.
+### Installing Dependencies
 
-## Usage
+Open the project file in terminal and run `yarn install`
 
-Instructions or examples for using the project. Include screenshots or code snippets if applicable.
+```
+npm install
+
+```
+
+### Setting Up Environment Variables
+
+Create a .env file in the root directory of the project and add your MongoDB credentials:
+
+```
+VITE_BASE_URL=https://car-wash-booking-system-ten.vercel.app/api
+```
+
+### Running the Project
+
+Once you have set up the environment variables, you can run the project locally.
+
+```
+npm run dev
+
+```
+
+### Accessing the Project
+
+```
+http://localhost:5173
+```

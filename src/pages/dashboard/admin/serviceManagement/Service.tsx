@@ -48,7 +48,7 @@ const Service = () => {
     if (pageSize) setPageSize(pageSize);
   };
 
-  console.log();
+
 
   const columns = [
     {
