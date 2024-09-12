@@ -7,6 +7,7 @@ import { useCurrentUser } from "../../store/features/auth/authSlice";
 import { Link } from "react-router-dom";
 import { useCreateReviewMutation } from "../../store/features/review/reviewApi";
 import { APIError } from "../../types/ApiError";
+import "../../styles/review.css";
 
 const layout = {
   wrapperCol: { span: 24 } // Make the form fields full width
@@ -65,7 +66,7 @@ const ReviewForm = () => {
         form={form} // Attach form instance for resetting fields
         name="review-form"
         onFinish={onFinish}
-        style={{ maxWidth: "100%" }}
+        style={{ maxWidth: "100%", color: "#fff" }}
         validateMessages={validateMessages}
       >
         <Form.Item

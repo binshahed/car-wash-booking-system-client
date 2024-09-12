@@ -16,7 +16,7 @@ const HelpBanner = () => {
       >
         <Col md={12}>
           <h2>Need help? Contact us</h2>
-          <p>Call us at (123) 456-7890 or email us at 123@example.com</p>
+          <p>Call us at +88 01624028821 or email us at info@nexorion.com</p>
         </Col>
         <Col
           md={12}

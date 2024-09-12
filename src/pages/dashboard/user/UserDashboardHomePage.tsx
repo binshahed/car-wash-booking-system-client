@@ -77,14 +77,23 @@ const UserDashboardHomePage = () => {
           </Col>
         )}
 
-        {upcoming.length === 0 && !isLoading && <h4>No Booking Found</h4>}
-
         {upcoming.map((bookingData: any) => (
           <Col xs={24} md={8} key={bookingData._id}>
             <BookingCard bookingData={bookingData} />
           </Col>
         ))}
       </Row>
+      {upcoming.length === 0 && !isLoading && (
+        <h4
+          style={{
+            margin: "20px",
+            color: "red",
+            textAlign: "center"
+          }}
+        >
+          No Upcoming Booking Found
+        </h4>
+      )}
     </div>
   );
 };

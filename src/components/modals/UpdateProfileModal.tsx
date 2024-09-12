@@ -6,7 +6,7 @@ import { EditFilled } from "@ant-design/icons";
 import { useUpdateProfileMutation } from "../../store/features/users/userAPi";
 
 const UpdateProfileModal = ({ profile }: { profile: any }) => {
-  const [updateProfile, { isLoading }] = useUpdateProfileMutation();
+  const [updateProfile, { isLoading, isSuccess }] = useUpdateProfileMutation();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [form] = Form.useForm();
@@ -35,7 +35,6 @@ const UpdateProfileModal = ({ profile }: { profile: any }) => {
 
       await updateProfile(formData);
 
-      message.success("Profile updated successfully");
       setIsModalOpen(false);
       form.resetFields();
     } catch (error) {
@@ -48,6 +47,14 @@ const UpdateProfileModal = ({ profile }: { profile: any }) => {
     setIsModalOpen(false);
     form.resetFields();
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      message.success("Profile updated successfully");
+    }
+  }, [isSuccess]);
+
+  
 
   return (
     <>
