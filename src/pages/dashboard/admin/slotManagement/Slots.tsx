@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Flex, message, Select, Table, Tag } from "antd";
-import DashboardHeading from "../../../components/typography/DashboardHeading";
+import DashboardHeading from "../../../../components/typography/DashboardHeading";
 import {
   useGetAllSlotQuery,
   useUpdateSlotStatusMutation
-} from "../../../store/features/booking/bookingApi";
+} from "../../../../store/features/booking/bookingApi";
 
 import { useState } from "react";
-import CreateSlotModal from "../../../components/modals/CreateSlotModal";
+import CreateSlotModal from "../../../../components/modals/CreateSlotModal";
 
 const Slots = () => {
   const [slotId, setSlotId] = useState("");
@@ -83,7 +83,7 @@ const Slots = () => {
 
   return (
     <div>
-      <Flex style={{ margin: "20px 0" }} justify="space-between" align="center">
+      <Flex justify="space-between" align="center">
         <DashboardHeading>Slots</DashboardHeading>
         <CreateSlotModal />
       </Flex>
@@ -91,7 +91,6 @@ const Slots = () => {
         loading={isSlotDataLoading}
         dataSource={data?.data}
         columns={columns}
-        style={{ marginTop: "20px" }}
         rowKey="_id" // Ensure a unique key for each row
       />
     </div>

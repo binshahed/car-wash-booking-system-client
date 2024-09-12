@@ -19,9 +19,7 @@ import { useMyBookingsQuery } from "../../store/features/booking/bookingApi";
 import { useDispatch } from "react-redux";
 
 const menuItems = [
-  { title: "Home", url: "/", cName: "nav-links" },
   { title: "Services", url: "/services", cName: "nav-links" },
-
   {
     title: "About Us",
     url: "/about-us",

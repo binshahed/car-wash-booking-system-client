@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Flex, message, Select, Table, Tag } from "antd";
-import DashboardHeading from "../../../components/typography/DashboardHeading";
+import DashboardHeading from "../../../../components/typography/DashboardHeading";
 import { useState } from "react";
 import {
   useGetAllUsersQuery,
   useUpdateUserRoleMutation
-} from "../../../store/features/users/userAPi";
+} from "../../../../store/features/users/userAPi";
 
 const Users = () => {
   const [userId, setUserId] = useState("");
@@ -82,14 +82,13 @@ const Users = () => {
 
   return (
     <div>
-      <Flex style={{ margin: "20px 0" }} justify="space-between" align="center">
+      <Flex justify="space-between" align="center">
         <DashboardHeading>Users</DashboardHeading>
       </Flex>
       <Table
         loading={isUserDataLoading}
         dataSource={data?.data}
         columns={columns}
-        style={{ marginTop: "20px" }}
         rowKey="_id"
       />
     </div>

@@ -3,10 +3,7 @@
     color: #fff;
   }
   
-  /* Set the rating star background to white */
-  /* .rate-white .ant-rate-star {
-    background-color: white;
-  } */
+
   
   .rate-white .ant-rate-star .ant-rate-star-second {
     color: white;
@@ -16,19 +13,19 @@
     color: white;
   }
   
-  /* Optional: Set the color of the filled stars */
+
   .rate-white .ant-rate-star.ant-rate-star-full .ant-rate-star-second {
-    color: var(--primary); /* Example color for filled stars */
+    color: var(--primary); 
   }
   
 
-  /* Set the height for the slider container */
+
 .slider-container {
-    height: 500px !important; /* Adjust height as needed */
+    height: 500px !important; 
     position: relative;
   }
   
-  /* Set the height for each slide item */
+
   .slide-item {
     display: flex;
     justify-content: center;
@@ -36,7 +33,6 @@
     height: 100%;
   }
   
-  /* Optionally adjust Card styling */
   .slide-item .ant-card {
     height: 100%;
     display: flex;
@@ -45,12 +41,10 @@
   }
 
 
-  /* Review form container */
 .review-form-container {
     position: relative;
   }
   
-  /* Overlay styles */
   .overlay {
     position: absolute;
     top: 0;
@@ -61,7 +55,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10; /* Ensure overlay is above the form */
+    z-index: 10; 
     padding: 20px;
   }
   

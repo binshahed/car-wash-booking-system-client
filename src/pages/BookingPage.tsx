@@ -9,7 +9,7 @@ import {
   CarOutlined,
   FieldTimeOutlined
 } from "@ant-design/icons";
-import BookingForm from "../components/booking/BookingForm";
+import BookingForm from "../components/Forms/BookingForm";
 
 const { Title, Text } = Typography;
 

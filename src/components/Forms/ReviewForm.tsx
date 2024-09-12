@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Form, Input, Rate, message } from "antd"; // Import message for feedback
-import "./review.css";
+
 import { useState, useEffect } from "react";
 import { useAppSelector } from "../../store/hooks";
 import { useCurrentUser } from "../../store/features/auth/authSlice";
 import { Link } from "react-router-dom";
 import { useCreateReviewMutation } from "../../store/features/review/reviewApi";
+import { APIError } from "../../types/ApiError";
 
 const layout = {
   wrapperCol: { span: 24 } // Make the form fields full width
@@ -23,7 +24,8 @@ const validateMessages = {
 };
 
 const ReviewForm = () => {
-  const [createReview, { isSuccess, isLoading }] = useCreateReviewMutation();
+  const [createReview, { isSuccess, isLoading, isError, error }] =
+    useCreateReviewMutation();
   const [rating, setRating] = useState(0);
   const user = useAppSelector(useCurrentUser);
   const [form] = Form.useForm();
@@ -40,6 +42,10 @@ const ReviewForm = () => {
       message.success("Review submitted successfully!"); // Show a success message
     }
   }, [isSuccess, form]); // Dependency array ensures it runs when isSuccess changes
+
+  if (isError) {
+    message.error((error as APIError)?.data?.message);
+  }
 
   return (
     <div className="review-form-container">

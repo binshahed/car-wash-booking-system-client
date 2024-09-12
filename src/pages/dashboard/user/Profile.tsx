@@ -9,7 +9,7 @@ const Profile = () => {
 
   return (
     <div>
-      <Flex style={{ margin: "20px 0" }} justify="space-between" align="center">
+      <Flex justify="space-between" align="center">
         <DashboardHeading>Profile</DashboardHeading>
       </Flex>
       <div

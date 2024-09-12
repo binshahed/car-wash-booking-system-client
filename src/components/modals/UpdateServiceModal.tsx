@@ -6,7 +6,7 @@ import axios from "axios";
 import { useUpdateServiceMutation } from "../../store/features/services/servicesApi";
 
 const UpdateServiceModal = ({ service }: { service: any }) => {
-  const [updateService, { isLoading }] = useUpdateServiceMutation();
+  const [updateService, { isLoading, isSuccess }] = useUpdateServiceMutation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isImageUploading, setImageUploading] = useState(false);
   const [form] = Form.useForm();
@@ -89,6 +89,12 @@ const UpdateServiceModal = ({ service }: { service: any }) => {
       throw error;
     }
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      message.success("Service Updated Successfully");
+    }
+  }, [isSuccess]);
 
   return (
     <>

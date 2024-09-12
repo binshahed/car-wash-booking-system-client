@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { Button, Layout, theme } from "antd";
+import { Button, Layout, theme, Tooltip } from "antd";
 import { Link, Outlet, ScrollRestoration } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import Sidebar from "./dashboard/Sidebar";
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/features/auth/authSlice";
+import { HomeFilled } from "@ant-design/icons";
 
 const { Header, Sider, Content } = Layout;
 
@@ -66,7 +67,19 @@ const DashboardLayout: React.FC = () => {
             }}
           />
 
-          <Link to="/">Return to Home</Link>
+          <Tooltip title="Back to Home" placement="bottom">
+            <Link to="/">
+              <span
+                style={{
+                  background: "var(--primary)",
+                  padding: "5px 10px",
+                  borderRadius: "5px"
+                }}
+              >
+                <HomeFilled style={{ color: "#fff" }} />
+              </span>
+            </Link>
+          </Tooltip>
           <Button onClick={() => dispatch(logout())}>Logout</Button>
         </Header>
         <Content

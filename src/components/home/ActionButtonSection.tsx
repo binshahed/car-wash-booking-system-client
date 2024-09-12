@@ -32,7 +32,7 @@ const ActionButtonSection = () => {
               comfortable. They have state-of-the-art technology to ensure your
               car is clean and safe.
             </p>
-            <Link to="/contact-us">
+            <Link to="/services">
               <SectionButton>Read More</SectionButton>
             </Link>
           </div>

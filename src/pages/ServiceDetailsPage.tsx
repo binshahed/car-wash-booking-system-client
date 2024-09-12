@@ -15,12 +15,15 @@ import "../styles/serviceDetail.css";
 import { convertMinutesToHoursAndMinutes } from "../utils/dateTime";
 import { useGetAllSlotQuery } from "../store/features/booking/bookingApi";
 import { useState } from "react";
+import dayjs from "dayjs";
 
 const ServiceDetailsPage = () => {
   const { serviceId } = useParams();
-  const [date, setDate] = useState("");
+  const currentDate = dayjs().format("YYYY-MM-DD");
 
-  const { data: service, isLoading } = useServiceDetailQuery(
+  const [date, setDate] = useState(currentDate);
+
+  const { data: service, isLoading: isServiceLoading } = useServiceDetailQuery(
     serviceId as string
   );
   const { data: slotData, isLoading: isSlotLoading } = useGetAllSlotQuery({
@@ -38,9 +41,9 @@ const ServiceDetailsPage = () => {
       className="container"
     >
       <Row gutter={[16, 16]}>
-        {isLoading ? (
+        {isServiceLoading ? (
           <Col md={12} lg={12} sm={24}>
-            <Skeleton />
+            <Skeleton active />
           </Col>
         ) : (
           <Col
@@ -52,7 +55,6 @@ const ServiceDetailsPage = () => {
               padding: "20px",
               borderRadius: "10px",
               boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-
               cursor: "pointer",
               overflow: "hidden"
             }}
@@ -103,50 +105,49 @@ const ServiceDetailsPage = () => {
           </Col>
         )}
 
-        {isSlotLoading ? (
-          <Col md={12} lg={12} sm={24}>
-            <Skeleton />
-          </Col>
-        ) : (
-          <Col
-            className="service-slot"
-            md={12}
-            lg={12}
-            sm={24}
-            style={{ height: "85vh", overflowY: "scroll" }}
-          >
-            <Row gutter={[16, 16]}>
+        <Col
+          className="service-slot"
+          md={12}
+          lg={12}
+          sm={24}
+          style={{ height: "85vh", overflowY: "scroll" }}
+        >
+          <Row gutter={[16, 16]}>
+            <Col span={24}>
+              <Card>
+                <h3 style={{ fontSize: "16px", fontWeight: "600" }}>
+                  Select Date
+                </h3>
+                <DatePicker
+                  onChange={onChange}
+                  size="large"
+                  style={{ width: "100%" }}
+                  defaultValue={dayjs()}
+                  format="YYYY-MM-DD"
+                />
+              </Card>
+            </Col>
+            {isSlotLoading ? (
+              // Show Skeleton when slots are loading
               <Col span={24}>
-                <Card>
-                  <h3 style={{ fontSize: "16px", fontWeight: "600" }}>
-                    Select Date
-                  </h3>
-                  <DatePicker
-                    onChange={onChange}
-                    size="large"
-                    style={{ width: "100%" }}
-                    format={{
-                      format: "YYYY-MM-DD",
-                      type: "mask"
-                    }}
-                  />
-
-                  {slotData?.data?.length === 0 && (
-                    <p
-                      style={{
-                        fontSize: "24px",
-                        fontWeight: "500",
-                        color: "#fa0b0b",
-                        marginTop: "16px",
-                        textAlign: "center"
-                      }}
-                    >
-                      No Slot Found
-                    </p>
-                  )}
-                </Card>
+                <Skeleton active />
               </Col>
-              {slotData?.data?.map((slot: any) => (
+            ) : slotData?.data?.length === 0 ? (
+              <Col span={24}>
+                <p
+                  style={{
+                    fontSize: "24px",
+                    fontWeight: "500",
+                    color: "#fa0b0b",
+                    marginTop: "16px",
+                    textAlign: "center"
+                  }}
+                >
+                  No Slot Found
+                </p>
+              </Col>
+            ) : (
+              slotData?.data?.map((slot: any) => (
                 <Col xs={24} sm={12} md={12} lg={12} key={slot?._id}>
                   <Card
                     hoverable
@@ -187,33 +188,20 @@ const ServiceDetailsPage = () => {
                         state={{ serviceId, slotId: slot?._id }}
                       >
                         <Button type="primary" block>
-                          "Book Now"
+                          Book This Service
                         </Button>
                       </Link>
                     ) : (
-                      <Button
-                        type="primary"
-                        disabled={slot.isBooked !== "available"}
-                        block
-                        style={{
-                          marginTop: "10px",
-                          backgroundColor:
-                            slot.isBooked === "available" ? "#FF6726" : "#ddd",
-                          borderColor:
-                            slot.isBooked === "available" ? "#FF6726" : "#ddd"
-                        }}
-                      >
-                        {slot.isBooked === "available"
-                          ? "Book Now"
-                          : "Unavailable"}
+                      <Button type="primary" disabled block>
+                        Unavailable
                       </Button>
                     )}
                   </Card>
                 </Col>
-              ))}
-            </Row>
-          </Col>
-        )}
+              ))
+            )}
+          </Row>
+        </Col>
       </Row>
     </section>
   );

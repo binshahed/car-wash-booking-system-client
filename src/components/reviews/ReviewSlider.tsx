@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Card, Rate, Skeleton } from "antd";
-import "./review.css"; // Import custom CSS
+
 import { useGetAllReviewQuery } from "../../store/features/review/reviewApi";
 
 function ReviewSlider() {
@@ -31,13 +31,35 @@ function ReviewSlider() {
           }}
         ></div>
       );
-    }
+    },
+    responsive: [
+      {
+        breakpoint: 768, // Breakpoint for tablets and smaller devices
+        settings: {
+          slidesToShow: 1, // Show 1 slide on devices with width less than 768px
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 1024, // Breakpoint for larger screens
+        settings: {
+          slidesToShow: 2, // Show 2 slides on devices with width 1024px and above
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   console.log(data);
 
   return (
-    <div className="slider-container">
+    <div
+      className="slider-container"
+      style={{
+        alignItems: "center",
+        justifyContent: "center"
+      }}
+    >
       <Slider {...settings}>
         {data?.data?.map((re: any) => (
           <div className="slide-item" key={re._id}>

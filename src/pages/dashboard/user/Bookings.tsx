@@ -114,7 +114,7 @@ const Bookings = () => {
 
   return (
     <div>
-      <Flex style={{ margin: "20px 0" }} justify="space-between" align="center">
+      <Flex justify="space-between" align="center">
         <DashboardHeading>Bookings</DashboardHeading>
       </Flex>
 

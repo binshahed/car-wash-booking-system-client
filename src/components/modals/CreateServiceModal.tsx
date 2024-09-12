@@ -1,13 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Modal, Form, Input, InputNumber, Upload, message } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { useCreateServiceMutation } from "../../store/features/services/servicesApi";
 
 const CreateServiceModal = () => {
-  const [createService, { isLoading }] = useCreateServiceMutation();
+  const [createService, { isLoading, isSuccess }] = useCreateServiceMutation();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [uploadingImage, setUploadingImage] = useState(false);
   const [form] = Form.useForm();
   const [fileList, setFileList] = useState([]);
 
@@ -52,16 +53,25 @@ const CreateServiceModal = () => {
     const apiKey = "9f9bd6cf0f193d3c6b4f9a630c233e03";
 
     try {
+      setUploadingImage(true);
       const response = await axios.post(
         `https://api.imgbb.com/1/upload?key=${apiKey}`,
         formData
       );
+      setUploadingImage(false);
       return response.data.data.url;
     } catch (error) {
+      setUploadingImage(false);
       message.error("Failed to upload image. Please try again.");
       throw error;
     }
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      message.success("Service Created Successfully");
+    }
+  }, [isSuccess]);
 
   return (
     <>
@@ -80,7 +90,7 @@ const CreateServiceModal = () => {
           <Button
             key="submit"
             type="primary"
-            loading={isLoading}
+            loading={uploadingImage || isLoading}
             onClick={handleOk}
           >
             Create Service

@@ -157,10 +157,10 @@ nav .active {
 
 .scroll-to-top-button {
   position: fixed;
-  bottom: 40px; /* Position the button above the footer */
-  right: 40px; /* Position the button from the right edge */
-  background-color: var(--primary); /* Use a color from your color schema */
-  color: #fff; /* Text color */
+  bottom: 40px; 
+  right: 40px; 
+  background-color: var(--primary); 
+  color: #fff; 
   border: none;
   border-radius: 50%;
   padding: 10px 15px;
@@ -181,12 +181,12 @@ nav .active {
 }
 
 .scroll-to-top-button svg {
-  font-size: 20px; /* Adjust icon size */
+  font-size: 20px; 
 }
 
 /* Custom scrollbar for the Sider */
 .ant-layout-sider {
-  overflow: auto; /* Ensure overflow is enabled */
+  overflow: auto; 
 }
 
 .ant-layout-sider::-webkit-scrollbar {

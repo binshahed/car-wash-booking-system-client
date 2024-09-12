@@ -17,7 +17,8 @@ import BookingSuccessPage from "../pages/BookingSuccessPage";
 import ComparePage from "../pages/ComparePage";
 import AboutUsPage from "../pages/AboutUsPage";
 import ContactUsPage from "../pages/ContactUsPage";
-import PaymentSuccess from "../pages/PaymentSuccess";
+
+import ReviewPage from "../pages/ReviewPage";
 
 const router = createBrowserRouter([
   {
@@ -41,9 +42,10 @@ const router = createBrowserRouter([
         element: <ContactUsPage />
       },
       {
-        path: "/payment-success",
-        element: <PaymentSuccess />
+        path: "/reviews",
+        element: <ReviewPage />
       },
+
       {
         path: "login",
         element: (

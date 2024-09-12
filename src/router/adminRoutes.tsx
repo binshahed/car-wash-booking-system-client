@@ -1,31 +1,44 @@
+import AdminDashboardHome from "../pages/dashboard/admin/AdminDashboardHome";
 import Bookings from "../pages/dashboard/Bookings";
-import Service from "../pages/dashboard/serviceManagement/Service";
-import Slots from "../pages/dashboard/slotManagement/Slots";
-import Users from "../pages/dashboard/userManagement/Users";
+import Service from "../pages/dashboard/admin/serviceManagement/Service";
+import Slots from "../pages/dashboard/admin/slotManagement/Slots";
+import Users from "../pages/dashboard/admin/userManagement/Users";
+import {
+  LayoutFilled,
+  CheckSquareFilled,
+  UserOutlined,
+  ProfileFilled,
+  CalendarFilled
+} from "@ant-design/icons";
 
 export const adminRoutes = [
   {
+    icon: <LayoutFilled />,
     name: "Dashboard",
     path: "dashboard",
-    element: <p>Dashboard</p>
+    element: <AdminDashboardHome />
   },
   {
+    icon: <CheckSquareFilled />,
     name: "Booking",
     path: "bookings",
     element: <Bookings />
   },
   {
+    icon: <UserOutlined />,
     name: "Users",
     path: "users",
     element: <Users />
   },
 
   {
+    icon: <ProfileFilled />,
     name: "Services",
     path: "service",
     element: <Service />
   },
   {
+    icon: <CalendarFilled />,
     name: "Slots",
     path: "slot",
     element: <Slots />

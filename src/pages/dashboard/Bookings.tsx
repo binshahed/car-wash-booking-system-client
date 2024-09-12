@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Table } from "antd";
 import { useGetAllBookingsQuery } from "../../store/features/booking/bookingApi";
+import DashboardHeading from "../../components/typography/DashboardHeading";
 
 const columns = [
   {
@@ -71,7 +72,7 @@ const Bookings = () => {
 
   return (
     <div>
-      <h3>Bookings</h3>
+      <DashboardHeading>Bookings</DashboardHeading>
       <Table
         dataSource={data?.data}
         loading={isLoading}

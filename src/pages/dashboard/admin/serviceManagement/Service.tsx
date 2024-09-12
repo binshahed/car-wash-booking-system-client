@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Flex, message, Modal, Pagination, Table, Tag } from "antd";
-import DashboardHeading from "../../../components/typography/DashboardHeading";
+import DashboardHeading from "../../../../components/typography/DashboardHeading";
 import {
   useDeleteServiceMutation,
   useGetAllServicesAdminQuery
-} from "../../../store/features/services/servicesApi";
-import { convertMinutesToHoursAndMinutes } from "../../../utils/dateTime";
+} from "../../../../store/features/services/servicesApi";
+import { convertMinutesToHoursAndMinutes } from "../../../../utils/dateTime";
 import { useState } from "react";
 import { DeleteFilled, ExclamationCircleFilled } from "@ant-design/icons";
-import CreateServiceModal from "../../../components/modals/CreateServiceModal";
-import UpdateServiceModal from "../../../components/modals/UpdateServiceModal";
+import CreateServiceModal from "../../../../components/modals/CreateServiceModal";
+import UpdateServiceModal from "../../../../components/modals/UpdateServiceModal";
 
 const { confirm } = Modal;
 
@@ -107,7 +107,7 @@ const Service = () => {
 
   return (
     <div>
-      <Flex style={{ margin: "20px 0" }} justify="space-between" align="center">
+      <Flex justify="space-between" align="center">
         <DashboardHeading>Services</DashboardHeading>
         <CreateServiceModal />
       </Flex>
