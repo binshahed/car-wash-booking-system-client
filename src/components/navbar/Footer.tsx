@@ -48,11 +48,7 @@ const Footer = () => {
             <Col xs={24} sm={12} md={6}>
               <div className="useful-link">
                 <h2>Useful Links</h2>
-                <img
-                  src="./assets/images/about/home_line.png"
-                  alt=""
-                  className="img-fluid"
-                />
+
                 <ul className="use-links">
                   <li>
                     <Link to="/">
@@ -80,11 +76,7 @@ const Footer = () => {
             <Col xs={24} sm={12} md={6}>
               <div className="social-links">
                 <h2>Follow Us</h2>
-                <img
-                  src="./assets/images/about/home_line.png"
-                  alt=""
-                  className="img-fluid"
-                />
+
                 <ul className="social-icons">
                   <li>
                     <a href="https://www.facebook.com/nexorionIT">
@@ -107,11 +99,7 @@ const Footer = () => {
             <Col xs={24} sm={12} md={6}>
               <div className="address">
                 <h2>Address</h2>
-                <img
-                  src="./assets/images/about/home_line.png"
-                  alt=""
-                  className="img-fluid"
-                />
+
                 <ul className="address-links">
                   <li className="address1">
                     <EnvironmentOutlined /> Alif Housing, Adabor, Dhaka.
