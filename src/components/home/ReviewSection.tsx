@@ -8,7 +8,7 @@ import "../../styles/review.css";
 
 const ReviewSection = () => {
   return (
-    <section className="py-10">
+    <section style={{ marginTop: "100px " }}>
       <div
         style={{
           margin: "20px 0",
@@ -20,7 +20,7 @@ const ReviewSection = () => {
         <div className="" />
 
         {/* Content */}
-        <div className="" style={{ width: "100%" }}>
+        <div className="" style={{ width: "78%", margin: "auto" }}>
           <Row gutter={[16, 16]} justify="center">
             <Col xs={24} sm={24} md={12}>
               <div

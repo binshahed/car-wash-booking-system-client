@@ -12,7 +12,7 @@ const BannerSection = () => {
   // Base content style for banner slides
   const contentStyle: React.CSSProperties = {
     margin: 0,
-    height: "102vh",
+    height: "80vh",
     color: "#fff",
     textAlign: "center",
     backgroundSize: "cover",

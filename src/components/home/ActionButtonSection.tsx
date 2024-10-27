@@ -16,7 +16,7 @@ const ActionButtonSection = () => {
           md={12}
           sm={24}
           style={{
-            paddingLeft: "15%",
+            paddingLeft: "19%",
             paddingRight: "5%",
             display: "flex",
             alignItems: "center" // Vertically center
