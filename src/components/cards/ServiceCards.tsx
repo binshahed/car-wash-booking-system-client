@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button, Card, Skeleton } from "antd";
+import { Button, Card, Rate, Skeleton } from "antd";
 import { Link } from "react-router-dom";
 import cardImage from "../../assets/images/card-image.avif";
 
 const ServiceCards = ({ service }: { service: any }) => {
+  console.log(service);
+
   return (
     <Card
       hoverable
@@ -12,7 +14,11 @@ const ServiceCards = ({ service }: { service: any }) => {
         service?.image ? (
           <Skeleton.Image />
         ) : (
-          <img alt="example" src={service?.imageUrl || cardImage} />
+          <img
+            style={{ height: "100%" }}
+            alt="example"
+            src={service?.imageUrl || cardImage}
+          />
         )
       }
     >
@@ -28,6 +34,10 @@ const ServiceCards = ({ service }: { service: any }) => {
             {service.name}
           </p>
         </Link>
+        <div style={{ margin: "5px 0" }}>
+          <Rate disabled value={service?.review?.rating} />
+          {`(${service?.review?.total})`}
+        </div>
         {/* <p>{product.description}</p> */}
         <p className="price">{service?.description}</p>
         <p className="text-primary text-bold">${service?.price}</p>

@@ -1,20 +1,20 @@
 /* Set the form label color to white */
-.form-item-label-white .ant-form-item-label > label {
+.home-review .form-item-label-white .ant-form-item-label > label {
     color: #fff;
   }
   
 
   
-  .rate-white .ant-rate-star .ant-rate-star-second {
+  .home-review .rate-white .ant-rate-star .ant-rate-star-second {
     color: white;
   }
   
-  .rate-white .ant-rate-star .ant-rate-star-first {
+ .home-review  .rate-white .ant-rate-star .ant-rate-star-first {
     color: white;
   }
   
 
-  .rate-white .ant-rate-star.ant-rate-star-full .ant-rate-star-second {
+  .home-review.rate-white .ant-rate-star.ant-rate-star-full .ant-rate-star-second {
     color: var(--primary); 
   }
   

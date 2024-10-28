@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 const ActionButtonSection = () => {
   return (
     <div
-      style={{
-        padding: "100px 0"
-      }}
+    // style={{
+    //   padding: "100px 0"
+    // }}
     >
       <Row>
         <Col
@@ -48,7 +48,8 @@ const ActionButtonSection = () => {
           <img
             className="action-image"
             style={{
-              width: "100%"
+              width: "100%",
+              padding: "50px 0"
             }}
             src={actionImg}
             alt=""

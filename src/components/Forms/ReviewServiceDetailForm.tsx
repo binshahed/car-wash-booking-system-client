@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import { useCreateReviewMutation } from "../../store/features/review/reviewApi";
 import { APIError } from "../../types/ApiError";
 import "../../styles/review.css";
-import { useGetAllServicesQuery } from "../../store/features/services/servicesApi";
 
 const layout = {
   wrapperCol: { span: 24 } // Make the form fields full width
@@ -25,11 +24,10 @@ const validateMessages = {
   }
 };
 
-const ReviewForm = () => {
+const ReviewServiceDetailForm = ({ service }: { service: any }) => {
   const [createReview, { isSuccess, isLoading, isError, error }] =
     useCreateReviewMutation();
-  const { data: service, isLoading: isServiceLoading } =
-    useGetAllServicesQuery(undefined);
+
   const [rating, setRating] = useState(0);
   const user = useAppSelector(useCurrentUser);
   const [form] = Form.useForm();
@@ -51,11 +49,6 @@ const ReviewForm = () => {
     message.error((error as APIError)?.data?.message);
   }
 
-  const serviceOptions = service?.data.map((s: any) => ({
-    label: s.name,
-    value: s._id
-  }));
-
   const onChange = (value: string) => {
     console.log(`selected ${value}`);
   };
@@ -65,7 +58,7 @@ const ReviewForm = () => {
   };
 
   return (
-    <div className="review-form-container home-review">
+    <div className="review-form-container">
       {!user?.email && (
         <div className="overlay">
           <div className="overlay-content">
@@ -121,8 +114,12 @@ const ReviewForm = () => {
             optionFilterProp="label"
             onChange={onChange}
             onSearch={onSearch}
-            options={serviceOptions}
-            loading={isServiceLoading}
+            options={[
+              {
+                label: service?.name,
+                value: service?._id
+              }
+            ]}
           />
         </Form.Item>
         <Form.Item
@@ -143,4 +140,4 @@ const ReviewForm = () => {
   );
 };
 
-export default ReviewForm;
+export default ReviewServiceDetailForm;

@@ -1,5 +1,4 @@
 import { Row, Col } from "antd";
-import bgImage from "../../assets/footer.jpg";
 import {
   FacebookOutlined,
   InstagramOutlined,
@@ -19,13 +18,12 @@ const Footer = () => {
       <div
         className="footer"
         style={{
-          backgroundImage: `url(${bgImage})`,
+          background: "var(--secondary)",
           textAlign: "left",
           backgroundSize: "cover",
           backgroundPosition: "center"
         }}
       >
-        <div className="footer-overlay"></div> {/* Overlay added here */}
         <div className="container">
           <Row gutter={[16, 16]}>
             <Col xs={24} sm={12} md={6} style={{ textAlign: "left" }}>
@@ -122,7 +120,7 @@ const Footer = () => {
       </div>
       <div
         style={{
-          backgroundColor: "var(--secondary)",
+          backgroundColor: "#121212",
           padding: "20px",
           color: "white"
         }}

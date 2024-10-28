@@ -1,44 +1,72 @@
-/* .service-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  } */
-
-.service-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+/* serviceDetail.css */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.service-card img {
-  border-radius: 8px;
-  object-fit: cover;
+.service-card, .slot-selection-card, .review-card {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.service-card h2 {
+.service-title {
   font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 10px;
+  font-weight: bold;
+  margin: 10px 0;
 }
 
-.service-card p {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.6;
-}
-
-.service-card p:first-of-type {
-  font-size: 18px;
+.service-price span {
+  color: #FF6726;
   font-weight: 500;
-  color: #ff6726;
-  margin-bottom: 8px;
 }
 
-.service-slot::-webkit-scrollbar {
-  width: 2px; /* width of the entire scrollbar */
+.service-duration, .service-description {
+  font-size: 16px;
+  color: #707070;
 }
-.service-slot::-webkit-scrollbar-track {
-  background: rgb(223, 223, 223); /* color of the tracking area */
+
+.slot-card {
+  text-align: center;
+  border-radius: 8px;
 }
-.service-slot::-webkit-scrollbar-thumb {
-  background-color: rgb(179, 179, 179); /* color of the scroll thumb */
-  border-radius: 20px; /* roundness of the scroll thumb */
-  /* border: 3px solid orange; */
+
+.available-slot {
+  background-color: #e8f5e9;
+  color: #28a745;
+}
+
+.booked-slot {
+  background-color: #ffebee;
+  color: #ff4d4f;
+}
+
+.no-slot-text, .no-review-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fa0b0b;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.review-card {
+  min-height: 200px;
+}
+
+.review-message {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.reviewer-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #333;
+}
+
+.reviewer-designation {
+  font-size: 14px;
+  font-style: italic;
+  color: #707070;
 }
