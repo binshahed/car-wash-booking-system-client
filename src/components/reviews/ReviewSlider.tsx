@@ -42,27 +42,36 @@ function ReviewSlider() {
               {isLoading ? (
                 <Skeleton avatar paragraph={{ rows: 4 }} />
               ) : (
-                <div>
-                  <Rate disabled value={re?.rating} />
-                  <p>{re.message}</p>
-                  <p
-                    style={{
-                      fontSize: "24px",
-                      fontWeight: "bold",
-                      marginTop: "10px"
-                    }}
-                    className="text-primary"
-                  >
-                    {re.customer.name}
-                  </p>
-                  <p
-                    style={{
-                      fontSize: "16px",
-                      fontStyle: "italic"
-                    }}
-                  >
-                    {re.designation}
-                  </p>
+                <div
+                  style={{
+                    minHeight: "200px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center"
+                  }}
+                >
+                  <div>
+                    <Rate disabled value={re?.rating} />
+                    <p>{re.message}</p>
+                    <p
+                      style={{
+                        fontSize: "24px",
+                        fontWeight: "bold",
+                        marginTop: "10px"
+                      }}
+                      className="text-primary"
+                    >
+                      {re.customer.name}
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "16px",
+                        fontStyle: "italic"
+                      }}
+                    >
+                      {re.designation}
+                    </p>
+                  </div>
                 </div>
               )}
             </div>

@@ -1,70 +1,83 @@
 /* Set the form label color to white */
 .home-review .form-item-label-white .ant-form-item-label > label {
-    color: #fff;
-  }
-  
+  color: #fff;
+}
 
-  
-  .home-review .rate-white .ant-rate-star .ant-rate-star-second {
-    color: white;
-  }
-  
- .home-review  .rate-white .ant-rate-star .ant-rate-star-first {
-    color: white;
-  }
-  
+.home-review .rate-white .ant-rate-star .ant-rate-star-second {
+  color: white;
+}
 
-  .home-review.rate-white .ant-rate-star.ant-rate-star-full .ant-rate-star-second {
-    color: var(--primary); 
-  }
-  
+.home-review .rate-white .ant-rate-star .ant-rate-star-first {
+  color: white;
+}
+
+.home-review.rate-white
+  .ant-rate-star.ant-rate-star-full
+  .ant-rate-star-second {
+  color: var(--primary);
+}
 
 
-.slider-container {
-    /* height: 500px !important; 
-    position: relative; */
-  }
-  
 
-  .slide-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-  
-  .slide-item .ant-card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+.slide-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 
+.slide-item .ant-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .review-form-container {
-    position: relative;
-  }
-  
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10; 
-    padding: 20px;
-  }
-  
-  /* Overlay content styles */
-  .overlay-content {
-    text-align: center;
-    color: #fff;
-  }
-  
-  .overlay-content p {
-    margin-bottom: 20px;
-  }
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  padding: 20px;
+}
+
+/* Overlay content styles */
+.overlay-content {
+  text-align: center;
+  color: #fff;
+}
+
+.overlay-content p {
+  margin-bottom: 20px;
+}
+
+.review-parent {
+  position: relative;
+  margin-bottom: 50px;
+
+  padding: 20px 10%;
+}
+
+.review-parent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(https://splashcarwashes.com/app/uploads/2024/01/Splash-Unlimited-Hero_NoOverlay.jpg);
+  background-size: cover;
+  filter: blur(5px);
+  background-position: center;
+  z-index: -1; 
+}

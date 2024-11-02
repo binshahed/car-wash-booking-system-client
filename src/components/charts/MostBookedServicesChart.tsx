@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Skeleton } from "antd";
 import { useMemo } from "react";
 import { Chart } from "react-google-charts";
 
@@ -56,7 +57,7 @@ const BookingsByDateChart = ({
   console.log("Fetched bookings:", bookings);
   console.log("Chart data:", chartData); // Log the prepared chart data
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Skeleton />;
 
   return (
     <div style={{ width: "100%", height: "400px", marginTop: "50px" }}>

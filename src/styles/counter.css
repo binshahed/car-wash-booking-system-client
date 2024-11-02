@@ -1,15 +1,28 @@
 .counter-section {
-    background-image: url('https://cartecworld.com/wp-content/uploads/2021/01/Carwash-Club-Neerpelt068-scaled.jpg'); /* Background image URL */
+    position: relative; /* Set position for pseudo-element */
+    padding: 50px 0;
+    color: white;
+    text-align: center;
+    height: 50vh;
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide overflow to limit blur spread */
+}
+
+.counter-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://cartecworld.com/wp-content/uploads/2021/01/Carwash-Club-Neerpelt068-scaled.jpg');
     background-size: cover;
     background-position: center;
-    padding: 50px 0; /* Vertical padding */
-    color: white; /* Text color */
-    text-align: center;
-    height: 50vh; /* Set height */
-    margin: 50px 0; /* Margin above and below the section */
-    display: flex; /* Enable flexbox */
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
+    filter: blur(5px); /* Apply blur only on background */
+    z-index: -1; /* Send background behind content */
 }
 
 .counter-container {
@@ -26,6 +39,8 @@
     padding: 20px; 
     background-color: rgba(0, 0, 0, 0.5); 
     border-radius: 10px; 
+    z-index: 50;
+
     /* width: 150px;  */
 }
 

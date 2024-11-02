@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Skeleton } from "antd";
 import { useMemo } from "react";
 
 import { Chart } from "react-google-charts";
@@ -28,7 +29,7 @@ const AdminDashboardChart = ({
     ];
   }, [bookings]);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Skeleton />;
 
   return (
     <div
