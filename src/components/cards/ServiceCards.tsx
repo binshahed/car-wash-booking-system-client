@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import cardImage from "../../assets/images/card-image.avif";
 
 const ServiceCards = ({ service }: { service: any }) => {
-  console.log(service);
+  console.log("service", service);
 
   return (
     <Card

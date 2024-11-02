@@ -1,5 +1,6 @@
 import AdminDashboardHome from "../pages/dashboard/admin/AdminDashboardHome";
-import Bookings from "../pages/dashboard/Bookings";
+import Bookings from "../pages/dashboard/admin/Bookings";
+
 import Service from "../pages/dashboard/admin/serviceManagement/Service";
 import Slots from "../pages/dashboard/admin/slotManagement/Slots";
 import Users from "../pages/dashboard/admin/userManagement/Users";

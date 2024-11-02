@@ -17,11 +17,37 @@ const reviewApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["review"]
     }),
+    getMyReviews: builder.query({
+      query: () => ({
+        url: `/reviews/my`,
+        method: "GET"
+      }),
+      providesTags: ["review"]
+    }),
+
+    deleteReview: builder.mutation({
+      query: (reviewId) => ({
+        url: `/reviews/${reviewId}`,
+        method: "DELETE"
+      }),
+      invalidatesTags: ["review"]
+    }),
+
+    updateReview: builder.mutation({
+      query: ({ reviewId, data }) => ({
+        url: `/reviews/${reviewId}`,
+        method: "PATCH",
+        body: data
+      }),
+      invalidatesTags: ["review"]
+    }),
+
     getReviewByService: builder.query({
       query: (id) => ({
         url: `/reviews/${id}`,
         method: "GET"
-      })
+      }),
+      providesTags: ["review"]
     })
   })
 });
@@ -29,5 +55,8 @@ const reviewApi = baseApi.injectEndpoints({
 export const {
   useGetAllReviewQuery,
   useCreateReviewMutation,
-  useGetReviewByServiceQuery
+  useGetReviewByServiceQuery,
+  useGetMyReviewsQuery,
+  useDeleteReviewMutation,
+  useUpdateReviewMutation
 } = reviewApi;

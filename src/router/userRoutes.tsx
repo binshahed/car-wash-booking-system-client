@@ -1,10 +1,14 @@
 import Bookings from "../pages/dashboard/user/Bookings";
 import Profile from "../pages/dashboard/user/Profile";
+import ReviewsPage from "../pages/dashboard/user/ReviewsPage";
+import UpcomingBookings from "../pages/dashboard/user/UpcomingBookings";
 import UserDashboardHomePage from "../pages/dashboard/user/UserDashboardHomePage";
 import {
   LayoutFilled,
   UserOutlined,
-  CheckSquareFilled
+  CheckSquareFilled,
+  PicLeftOutlined,
+  StarFilled
 } from "@ant-design/icons";
 
 export const userRoutes = [
@@ -13,6 +17,12 @@ export const userRoutes = [
     name: "Dashboard",
     path: "dashboard",
     element: <UserDashboardHomePage />
+  },
+  {
+    icon: <PicLeftOutlined />,
+    name: "Upcoming Bookings",
+    path: "upcomingBookings",
+    element: <UpcomingBookings />
   },
 
   {
@@ -26,5 +36,11 @@ export const userRoutes = [
     name: "Bookings",
     path: "bookings",
     element: <Bookings />
+  },
+  {
+    icon: <StarFilled />,
+    name: "Reviews",
+    path: "reviews",
+    element: <ReviewsPage />
   }
 ];

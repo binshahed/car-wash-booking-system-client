@@ -54,10 +54,10 @@ const Header = () => {
     user?.email
       ? {
           label: (
-            <>
+            <Link to="/profile">
               <span style={{ fontWeight: "bold" }}>{user?.name}</span> <br />{" "}
               {user?.email}
-            </>
+            </Link>
           ),
           key: user.name
         }

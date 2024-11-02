@@ -9,6 +9,7 @@ const BannerSection = lazy(() => import("../components/home/BannerSection"));
 const HelpBanner = lazy(() => import("../components/home/HelpBanner"));
 const ReviewSection = lazy(() => import("../components/home/ReviewSection"));
 const ServiceSection = lazy(() => import("../components/home/ServiceSection"));
+const CounterSection = lazy(() => import("../components/home/CounterSection"));
 
 const HomePage = () => {
   return (
@@ -24,10 +25,14 @@ const HomePage = () => {
         <ServiceSection />
       </Suspense>
       <Suspense fallback={<Skeleton />}>
-        <ReviewSection />
+        <CounterSection />
       </Suspense>
       <Suspense fallback={<Skeleton />}>
         <HelpBanner />
+      </Suspense>
+
+      <Suspense fallback={<Skeleton />}>
+        <ReviewSection />
       </Suspense>
     </div>
   );

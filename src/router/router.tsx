@@ -19,6 +19,7 @@ import AboutUsPage from "../pages/AboutUsPage";
 import ContactUsPage from "../pages/ContactUsPage";
 
 import ReviewPage from "../pages/ReviewPage";
+import ProfilePage from "../pages/ProfilePage";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/reviews",
         element: <ReviewPage />
+      },
+      {
+        path: "/profile",
+        element: <ProfilePage />
       },
 
       {

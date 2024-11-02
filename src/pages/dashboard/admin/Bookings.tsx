@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Table } from "antd";
-import { useGetAllBookingsQuery } from "../../store/features/booking/bookingApi";
-import DashboardHeading from "../../components/typography/DashboardHeading";
+import { useGetAllBookingsQuery } from "../../../store/features/booking/bookingApi";
+import DashboardHeading from "../../../components/typography/DashboardHeading";
 
 const columns = [
   {

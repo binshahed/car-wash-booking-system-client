@@ -6,7 +6,11 @@ import UpdateProfileModal from "../modals/UpdateProfileModal";
 const { Title, Text } = Typography;
 
 const ProfileCard = ({ profile }: { profile: any }) => {
-  const { name, email, phone, address, role } = profile || {};
+  const { name, email, phone, address, role, photoUrl } = profile || {};
+
+  const image = photoUrl
+    ? photoUrl
+    : "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg";
 
   return (
     <Card
@@ -24,7 +28,7 @@ const ProfileCard = ({ profile }: { profile: any }) => {
         <Col span={6}>
           <Avatar
             size={80}
-            src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+            src={image}
             icon={<UserOutlined />}
             style={{ backgroundColor: "#87d068" }}
           />

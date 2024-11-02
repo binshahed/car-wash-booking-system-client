@@ -1,0 +1,40 @@
+.counter-section {
+    background-image: url('https://cartecworld.com/wp-content/uploads/2021/01/Carwash-Club-Neerpelt068-scaled.jpg'); /* Background image URL */
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0; /* Vertical padding */
+    color: white; /* Text color */
+    text-align: center;
+    height: 50vh; /* Set height */
+    margin: 50px 0; /* Margin above and below the section */
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+}
+
+.counter-container {
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
+    max-width: 1200px; /* Set a max width for the container */
+    margin: 0 auto; /* Center the container */
+}
+
+.counter-item {
+     /* Margin between counter items */
+    padding: 20px; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-radius: 10px; 
+    /* width: 150px;  */
+}
+
+.counter-item h2 {
+    font-size: 36px; /* Font size for the count */
+    margin: 0; /* Remove default margin */
+}
+
+.counter-item p {
+    font-size: 16px; /* Font size for the label */
+    margin-top: 10px; /* Space above label */
+}

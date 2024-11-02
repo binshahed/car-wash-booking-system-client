@@ -16,6 +16,7 @@ const ActionButtonSection = () => {
           md={12}
           sm={24}
           style={{
+            marginTop: "20px",
             paddingLeft: "19%",
             paddingRight: "5%",
             display: "flex",

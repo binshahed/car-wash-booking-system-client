@@ -2,7 +2,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Card, Rate, Skeleton } from "antd";
+import { Rate, Skeleton } from "antd";
 
 import { useGetAllReviewQuery } from "../../store/features/review/reviewApi";
 
@@ -11,46 +11,12 @@ function ReviewSlider() {
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 2,
+    speed: 500,
+    slidesToShow: 1,
     slidesToScroll: 1,
-    vertical: true,
-    verticalSwiping: true,
-    swipeToSlide: true,
     autoplay: true,
-    autoplaySpeed: 2000,
-    arrows: false,
-    customPaging: function () {
-      return (
-        <div
-          style={{
-            marginTop: "20px",
-            width: "10px",
-            height: "10px",
-            backgroundColor: "#ffffff", // Default dot color
-            borderRadius: "50%"
-          }}
-        ></div>
-      );
-    },
-    responsive: [
-      {
-        breakpoint: 768, // Breakpoint for tablets and smaller devices
-        settings: {
-          slidesToShow: 1, // Show 1 slide on devices with width less than 768px
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: 1024, // Breakpoint for larger screens
-        settings: {
-          slidesToShow: 2, // Show 2 slides on devices with width 1024px and above
-          slidesToScroll: 1
-        }
-      }
-    ]
+    accessibility: true
   };
-
-
 
   return (
     <div
@@ -63,7 +29,16 @@ function ReviewSlider() {
       <Slider {...settings}>
         {data?.data?.map((re: any) => (
           <div className="slide-item" key={re._id}>
-            <Card style={{ minHeight: "200px" }}>
+            <div
+              style={{
+                border: "1px solid",
+                borderRadius: "10px",
+                minHeight: "200px",
+                padding: "20px",
+                textAlign: "center",
+                color: "#fff"
+              }}
+            >
               {isLoading ? (
                 <Skeleton avatar paragraph={{ rows: 4 }} />
               ) : (
@@ -90,7 +65,7 @@ function ReviewSlider() {
                   </p>
                 </div>
               )}
-            </Card>
+            </div>
           </div>
         ))}
       </Slider>
